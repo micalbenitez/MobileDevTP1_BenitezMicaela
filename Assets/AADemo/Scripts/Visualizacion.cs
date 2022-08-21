@@ -137,7 +137,6 @@ public class Visualizacion : MonoBehaviour
 			
 			
 		case Player.Estados.EnCalibracion:
-			//SetCalibr();
 			break;
 			
 			
@@ -273,54 +272,6 @@ public class Visualizacion : MonoBehaviour
 		GUI.Box(R, "$" + PrepararNumeros(Pj.Dinero));
 	}
 	
-	void SetCalibr()
-	{
-		GUI.skin = GS_TutoCalib;
-		
-		R.width = ReadyEsc.x *Screen.width /100;
-		R.height = ReadyEsc.y *Screen.height /100;
-		R.x = ReadyPos.x *Screen.width /100;
-		R.y = ReadyPos.y *Screen.height /100;
-		if(LadoAct == Visualizacion.Lado.Der)
-			R.x = (Screen.width) - R.x - R.width;
-		
-		switch(Pj.ContrCalib.EstAct)
-		{
-		case ContrCalibracion.Estados.Calibrando:
-			
-			//pongase en posicion para iniciar
-			GS_TutoCalib.box.normal.background = ImaEnPosicion;			
-			GUI.Box(R,"");
-			
-			break;
-			
-		case ContrCalibracion.Estados.Tutorial:
-			//tome la bolsa y depositela en el estante
-			
-			TempoIntTuto += T.GetDT();
-			if(TempoIntTuto >= Intervalo)
-			{
-				TempoIntTuto = 0;
-				if(EnCurso + 1 < ImagenesDelTuto.Length)
-					EnCurso++;
-				else
-					EnCurso = 0;
-			}
-			GS_TutoCalib.box.normal.background = ImagenesDelTuto[EnCurso];
-			
-			GUI.Box(R,"");
-			
-			break;
-			
-		case ContrCalibracion.Estados.Finalizado:
-			//esperando al otro jugador		
-			GS_TutoCalib.box.normal.background = ImaReady;
-			GUI.Box(R,"");
-			
-			break;
-		}
-	}
-	
 	void SetTuto()
 	{
 		if(Pj.ContrTuto.Finalizado)
@@ -337,53 +288,6 @@ public class Visualizacion : MonoBehaviour
 			GUI.Box(R,"ESPERANDO AL OTRO JUGADOR");
 		}
 	}
-	
-	/*
-	void SetInv()
-	{
-		GUI.skin = GS_Inv;
-		
-		//fondo
-		GS_Inv.box.normal.background = TextFondo;
-		R.width = FondoEsc.x * Screen.width /100;
-		R.height = FondoEsc.y * Screen.height /100;
-		R.x = FondoPos.x * Screen.width /100;
-		R.y = FondoPos.y * Screen.height /100;
-		if(LadoAct == Visualizacion.Lado.Der)
-			R.x = (Screen.width) - R.x - R.width;
-		GUI.Box(R,"");
-		
-		//bolsas
-		R.width = SlotsEsc.x * Screen.width /100;
-		R.height = SlotsEsc.y * Screen.height /100;
-		int contador = 0;
-		for(int j = 0; j < Fil; j++)
-		{
-			for(int i = 0; i < Col; i++)
-			{
-				R.x = SlotPrimPos.x * Screen.width / 100 + Separacion.x * i * Screen.width / 100;
-				R.y = SlotPrimPos.y * Screen.height / 100 + Separacion.y * j * Screen.height / 100;
-				if(LadoAct == Visualizacion.Lado.Der)
-					R.x = (Screen.width) - R.x - R.width;
-				
-				if(contador < Pj.Bolasas.Length )//&& Pj.Bolasas[contador] != null)
-				{
-					if(Pj.Bolasas[contador]!=null)
-						GS_Inv.box.normal.background = Pj.Bolasas[contador].ImagenInventario;
-					else
-						GS_Inv.box.normal.background = TexturaVacia;				
-				}
-				else
-				{
-					GS_Inv.box.normal.background = TexturaVacia;
-				}
-				GUI.Box(R,"");
-				
-				contador++;
-			}
-		}
-	}
-	*/
 	
 	void SetVolante()
 	{
