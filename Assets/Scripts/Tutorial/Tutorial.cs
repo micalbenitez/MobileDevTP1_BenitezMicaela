@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Entities.Player;
+using Toolbox;
 
 namespace Tutorial
 {
@@ -21,16 +23,34 @@ namespace Tutorial
         [Header("Player data")]
         public PlayerMovement playerMovement = null;
         [Header("Bag")]
-        public TutorialBag tutorialBag = null;  
+        public TutorialBag tutorialBag = null;
+        [Header("Finish tutorial")]
+        public float timeToStartGame = 0;
+        public UnityEvent finishTutorial = null;
+
+        [Header("Other tutorial")]
+        public Tutorial otherTutorial = null;
 
         /// Actual tutorial step
         private STEPS steps = STEPS.PRETUTORIAL;
+        /// Timer to start the game
+        public Timer timer = new Timer();
+
+        /// <summary>
+        /// Initialize timer
+        /// </summary>
+        private void Awake()
+        {
+            timer.SetTimer(timeToStartGame, Timer.TIMER_MODE.DECREASE);
+        }
 
         /// <summary>
         /// Update tutorial
         /// </summary>
         private void Update()
         {
+            StartGame();
+
             switch (steps)
             {
                 case STEPS.PRETUTORIAL:
@@ -50,6 +70,7 @@ namespace Tutorial
                     break;
 
                 case STEPS.STEP4:
+                    if (!timer.Active && otherTutorial.steps == STEPS.STEP4) timer.ActiveTimer();
                     break;
                 default:
                     break;
@@ -78,6 +99,19 @@ namespace Tutorial
                 tutorialScreen.NextTutorialImage();
                 tutorialBag.NextPosition();
                 steps++;
+            }
+        }
+
+        /// <summary>
+        /// Start the game
+        /// </summary>
+        private void StartGame()
+        {
+            if (timer.Active) timer.UpdateTimer();
+            if (timer.ReachedTimer())
+            {
+                finishTutorial?.Invoke();
+                gameObject.SetActive(false);
             }
         }
     }
