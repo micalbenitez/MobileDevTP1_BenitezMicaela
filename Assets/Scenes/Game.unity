@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 53472386}
   - component: {fileID: 51212867}
   m_Layer: 0
-  m_Name: Bag
+  m_Name: TutorialBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e02a12f5ff109a42811ff7f51dc01ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positions:
+  - {x: 18, y: 3, z: -5000}
+  - {x: 20, y: 3.7, z: -5000}
+  - {x: 22, y: 3, z: -5000}
 --- !u!23 &53472386
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +434,7 @@ GameObject:
   - component: {fileID: 62804390}
   - component: {fileID: 60608359}
   m_Layer: 0
-  m_Name: Bag
+  m_Name: TutorialBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,6 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e02a12f5ff109a42811ff7f51dc01ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positions:
+  - {x: 18, y: 3, z: -5000}
+  - {x: 20, y: 3.7, z: -5000}
+  - {x: 22, y: 3, z: -5000}
 --- !u!33 &61805414
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -629,10 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialScreen: {fileID: 28233329}
   playerMovement: {fileID: 1753750458744009}
-  bag: {fileID: 51212867}
-  positionStep1: {x: 18, y: 3, z: -5000}
-  positionStep2: {x: 20, y: 3.7, z: -5000}
-  positionStep3: {x: 22, y: 3, z: -5000}
+  tutorialBag: {fileID: 51212867}
 --- !u!1 &144740695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,10 +1603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialScreen: {fileID: 1608620921}
   playerMovement: {fileID: 1753750799941202}
-  bag: {fileID: 60608359}
-  positionStep1: {x: 18, y: 3, z: -5000}
-  positionStep2: {x: 20, y: 3.7, z: -5000}
-  positionStep3: {x: 22, y: 3, z: -5000}
+  tutorialBag: {fileID: 60608359}
 --- !u!1 &1183453474
 GameObject:
   m_ObjectHideFlags: 0
