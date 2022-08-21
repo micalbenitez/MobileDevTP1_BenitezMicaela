@@ -6,12 +6,14 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        [Header("Game camera")]
-        public Camera gameCamera = null;
+        [Header("Game cameras")]
+        public Camera cameraPlayer1 = null;
+        public Camera cameraPlayer2 = null;
 
         public void StartGame()
         {
-            gameCamera.gameObject.SetActive(true);
+            cameraPlayer1.gameObject.SetActive(true);
+            cameraPlayer2.gameObject.SetActive(true);
         }
     }
 }
