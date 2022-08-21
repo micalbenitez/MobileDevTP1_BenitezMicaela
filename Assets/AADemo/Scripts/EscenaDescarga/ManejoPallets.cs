@@ -22,13 +22,6 @@ public class ManejoPallets : MonoBehaviour
 			return true;
 		else
 			return false;
-		
-		/*
-		if(Pallets.Count > Contador)
-			return true;
-		else
-			return false;
-			*/
 	}
 	
 	public virtual void Dar(ManejoPallets receptor)
