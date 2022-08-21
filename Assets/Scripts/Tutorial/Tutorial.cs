@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Players;
+using Entities.Player;
+using Entities.Items;
 
 namespace Tutorial
 {
@@ -16,10 +17,15 @@ namespace Tutorial
             STEP4
         }
 
-        [Header("Player data")]
-        public PlayerMovement playerMovement = null;
         [Header("Tutorial screen")]
         public TutorialScreen tutorialScreen = null;
+        [Header("Player data")]
+        public PlayerMovement playerMovement = null;
+        [Header("Bag data")]
+        public Bag bag = null;  
+        public Vector3 positionStep1 = Vector3.zero;
+        public Vector3 positionStep2 = Vector3.zero;
+        public Vector3 positionStep3 = Vector3.zero;
 
         /// Actual tutorial step
         private STEPS steps = STEPS.PRETUTORIAL;
@@ -36,15 +42,15 @@ namespace Tutorial
                     break;
 
                 case STEPS.STEP1:
-                    NextTutorialStep(playerMovement.left);
+                    NextTutorialStep(playerMovement.left, positionStep1);
                     break;
 
                 case STEPS.STEP2:
-                    NextTutorialStep(playerMovement.up);
+                    NextTutorialStep(playerMovement.up, positionStep2);
                     break;
 
                 case STEPS.STEP3:
-                    NextTutorialStep(playerMovement.right);
+                    NextTutorialStep(playerMovement.right, positionStep3);
                     break;
 
                 case STEPS.STEP4:
@@ -69,11 +75,12 @@ namespace Tutorial
         /// <summary>
         /// Next tutorial step
         /// </summary>
-        private void NextTutorialStep(KeyCode key)
+        private void NextTutorialStep(KeyCode key, Vector3 bagPosition)
         {
             if (Input.GetKeyDown(key))
             {
                 tutorialScreen.NextTutorialImage();
+                bag.transform.localPosition = bagPosition;
                 steps++;
             }
         }

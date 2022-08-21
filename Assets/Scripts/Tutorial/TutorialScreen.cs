@@ -75,7 +75,7 @@ namespace Tutorial
         {
             tutorialImage++;
 
-            if (tutorialImage >= tutorialImages.Length)  
+            if (tutorialImage < tutorialImages.Length)  
                 meshRenderer.material.mainTexture = tutorialImages[tutorialImage];
         }
     }
