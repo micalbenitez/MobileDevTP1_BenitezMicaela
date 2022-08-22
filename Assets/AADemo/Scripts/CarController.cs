@@ -10,12 +10,6 @@ public class CarController : MonoBehaviour {
     public float maxTurn = 20f;
     float giro = 0f;
     float acel = 1f;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -26,12 +20,5 @@ public class CarController : MonoBehaviour {
             wheel.steerAngle = maxTurn * giro;
         }
         giro = 0f;
-    }
-
-    public void SetGiro(float giro) {
-        this.giro = giro;
-    }
-    public void SetAcel(float val) {
-        acel = val;
     }
 }
