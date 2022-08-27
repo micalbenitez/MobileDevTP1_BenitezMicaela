@@ -7135,11 +7135,10 @@ GameObject:
   - component: {fileID: 3721030573362984356}
   - component: {fileID: 3723718084575303988}
   - component: {fileID: 3720558982164664488}
-  - component: {fileID: 3617315854131600916}
   - component: {fileID: 3617315854131600917}
   - component: {fileID: 3617315854131600919}
   m_Layer: 8
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7353,26 +7352,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TiempEsp: 0.5
   TiempNoColl: 1
---- !u!114 &3617315854131600916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776f471ddb87b8345b236906c8fac0fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throttleWheels:
-  - {fileID: 6815758957038709192}
-  - {fileID: 6815758956633333663}
-  steeringWheels:
-  - {fileID: 6815758955789605090}
-  - {fileID: 6815758956831914339}
-  throttleCoefficient: 20000
-  maxTurn: 20
 --- !u!114 &3617315854131600917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,7 +7372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fe2ead9d1b84e8499aadc310ac1a14e, type: 3}
   m_Name: 
