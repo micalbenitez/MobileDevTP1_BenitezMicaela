@@ -4,35 +4,21 @@ using UnityEngine;
 
 namespace Entities.Player
 {
-    public enum AXLE
-    {
-        FRONT, 
-        BACK
-    }
-
-    public struct Wheel
-    {
-        public GameObject model;
-        public WheelCollider wheelCollider;
-        public AXLE axle;
-    }
-
     [RequireComponent(typeof(Rigidbody))]
     public class CarController : MonoBehaviour
     {
-        public float maxAcceleration = 20f;
+        [Header("Car data")]
+        public float speed = 20f;
+
+        [Header("Turn data")]
         public float turnSensitive = 1f;
         public float maxAngle = 45f;
 
-        private float inputX, inputY = 0;
-        private Rigidbody rigidBody = null;
-
+        [Header("Wheels data")]
         public List<AxleData> axleData = new List<AxleData>();
 
-        private void Awake()
-        {
-            rigidBody = GetComponent<Rigidbody>();      
-        }
+        /// Horizontal input
+        private float inputX = 0;
 
         private void FixedUpdate()
         {
@@ -42,8 +28,7 @@ namespace Entities.Player
 
         private void GetInput()
         {
-            inputX = Input.GetAxis("Horizontal");
-            inputY = Input.GetAxis("Vertical");
+            inputX = Input.GetAxis("Horizontal0");
         }
 
         private void Move()
@@ -52,8 +37,8 @@ namespace Entities.Player
             {
                 if (data.isBack)
                 {
-                    data.rightWheel.motorTorque = inputY * maxAcceleration * 500 * Time.deltaTime;
-                    data.leftWheel.motorTorque = inputY * maxAcceleration * 500 * Time.deltaTime;
+                    data.rightWheel.motorTorque = speed * 500 * Time.deltaTime;
+                    data.leftWheel.motorTorque = speed * 500 * Time.deltaTime;
                 }
                 if (data.isFront)
                 {
