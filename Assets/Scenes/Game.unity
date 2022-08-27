@@ -26614,13 +26614,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7832363246302279501}
   height: 5.9
-  positionDamping: 3
   velocityDamping: 3
-  distance: 6
+  distance: -4
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  LejaniaZ: -4
 --- !u!124 &1822638288
 Behaviour:
   m_ObjectHideFlags: 0
@@ -29863,13 +29861,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 30331364}
   height: 5.9
-  positionDamping: 3
   velocityDamping: 3
-  distance: 6
+  distance: -4
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  LejaniaZ: -4
 --- !u!124 &2074128704
 Behaviour:
   m_ObjectHideFlags: 0
