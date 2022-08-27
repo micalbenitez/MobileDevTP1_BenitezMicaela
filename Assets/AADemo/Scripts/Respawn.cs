@@ -1,38 +1,28 @@
 using UnityEngine;
 using System.Collections;
 
-public class Respawn : MonoBehaviour 
+public class Respawn : MonoBehaviour
 {
+	public float AngMax = 90;//angulo maximo antes del cual se reinicia el camion
+	public float RangMinDer = 0;
+	public float RangMaxDer = 0;
+	public float TiempDeNoColision = 2;
+
 	CheakPoint CPAct;
 	CheakPoint CPAnt;
 	
-	public float AngMax = 90;//angulo maximo antes del cual se reinicia el camion
 	int VerifPorCuadro = 20;
-	int Contador = 0;
-	
-	public float RangMinDer = 0;
-	public float RangMaxDer = 0;
+	int Contador = 0;	
 	
 	bool IgnorandoColision = false;
-	public float TiempDeNoColision = 2;
 	float Tempo = 0;
-	
-	//--------------------------------------------------------//
 
-	// Use this for initialization
 	void Start () 
-	{
-		/*
-		//a modo de prueba
-		TiempDeNoColision = 100;
-		IgnorarColision(true);
-		*/
-		
+	{		
 		//restaura las colisiones
 		Physics.IgnoreLayerCollision(8,9,false);
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 		if(CPAct != null)
@@ -58,8 +48,6 @@ public class Respawn : MonoBehaviour
 		}
 		
 	}
-	
-	//--------------------------------------------------------//
 	
 	public void Respawnear()
 	{

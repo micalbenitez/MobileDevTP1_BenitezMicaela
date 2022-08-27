@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776487}
   m_Layer: 0
-  m_Name: Edificio1B
+  m_Name: Building1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776495}
   m_Layer: 0
-  m_Name: Edificio4
+  m_Name: Building4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,7 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776497}
   m_Layer: 0
-  m_Name: Edificio2B
+  m_Name: Building2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,8 +689,8 @@ GameObject:
   - component: {fileID: 5186780794170549117}
   - component: {fileID: 5186780794174340765}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,7 +707,7 @@ Transform:
   m_LocalScale: {x: 1.7151271, y: 2.7052133, z: 65.48752}
   m_Children: []
   m_Father: {fileID: 5186780794168776511}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5186780794165385007
 MeshFilter:
@@ -798,8 +798,8 @@ GameObject:
   - component: {fileID: 5186780794170549119}
   - component: {fileID: 5186780794174340767}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,7 +816,7 @@ Transform:
   m_LocalScale: {x: 1.7151271, y: 2.7052133, z: 65.48752}
   m_Children: []
   m_Father: {fileID: 5186780794168776511}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5186780794165384913
 MeshFilter:
@@ -1020,7 +1020,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5186780794168776511}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5186780794165384917
 MeshFilter:
@@ -1307,7 +1307,6 @@ Transform:
   - {fileID: 5186780794168776503}
   - {fileID: 5186780794168776509}
   - {fileID: 5186780794168776507}
-  - {fileID: 5186780794168776399}
   - {fileID: 5186780794168776543}
   - {fileID: 5186780794168776501}
   - {fileID: 5186780794168776499}
@@ -1613,7 +1612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776391}
   m_Layer: 0
-  m_Name: Edificio1
+  m_Name: Building1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,36 +1923,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5186780794168281839
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5186780794168776399}
-  m_Layer: 0
-  m_Name: Edificios
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5186780794168776399
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5186780794168281839}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.6003189, y: -2.2102053, z: -0.26172692}
-  m_LocalScale: {x: 0.5, y: 0.49999988, z: 0.49999988}
-  m_Children: []
-  m_Father: {fileID: 5186780794168776511}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5186780794168281841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,7 +2221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776407}
   m_Layer: 0
-  m_Name: Edificio5C
+  m_Name: Building5C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,7 +2542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776415}
   m_Layer: 0
-  m_Name: Edificio2C
+  m_Name: Building2C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2606,7 +2575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776545}
   m_Layer: 0
-  m_Name: Edificio3
+  m_Name: Building3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2927,7 +2896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776553}
   m_Layer: 0
-  m_Name: Edificio2
+  m_Name: Building2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3248,7 +3217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776561}
   m_Layer: 0
-  m_Name: Edificio4C
+  m_Name: Building4C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3569,7 +3538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776569}
   m_Layer: 0
-  m_Name: Edificio3B
+  m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3890,7 +3859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776449}
   m_Layer: 0
-  m_Name: Edificio1
+  m_Name: Building1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4211,7 +4180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776457}
   m_Layer: 0
-  m_Name: Edificio3C
+  m_Name: Building3C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4532,7 +4501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776465}
   m_Layer: 0
-  m_Name: Edificio1C
+  m_Name: Building1C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4853,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776473}
   m_Layer: 0
-  m_Name: Edificio5
+  m_Name: Building5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5462,7 +5431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776519}
   m_Layer: 0
-  m_Name: Edificio5C
+  m_Name: Building5C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5495,7 +5464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776521}
   m_Layer: 0
-  m_Name: Edificio4B
+  m_Name: Building4B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5816,7 +5785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186780794168776543}
   m_Layer: 0
-  m_Name: Edificios
+  m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5850,5 +5819,5 @@ Transform:
   - {fileID: 5186780794168776519}
   - {fileID: 5186780794168776407}
   m_Father: {fileID: 5186780794168776511}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -528,8 +528,8 @@ GameObject:
   - component: {fileID: 5649755387534210756}
   - component: {fileID: 5649755387522296612}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,7 +633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296904}
   m_Layer: 0
-  m_Name: Edificio1C
+  m_Name: Building1C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,8 +958,8 @@ GameObject:
   - component: {fileID: 5649755387534210782}
   - component: {fileID: 5649755387522296638}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,8 +1067,8 @@ GameObject:
   - component: {fileID: 5649755387534210768}
   - component: {fileID: 5649755387522296624}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1172,7 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296916}
   m_Layer: 0
-  m_Name: Limites
+  m_Name: Limits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,8 +1213,8 @@ GameObject:
   - component: {fileID: 5649755387534210758}
   - component: {fileID: 5649755387522296614}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1322,8 +1322,8 @@ GameObject:
   - component: {fileID: 5649755387534210776}
   - component: {fileID: 5649755387522296632}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1431,8 +1431,8 @@ GameObject:
   - component: {fileID: 5649755387534210778}
   - component: {fileID: 5649755387522296634}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1540,8 +1540,8 @@ GameObject:
   - component: {fileID: 5649755387534210780}
   - component: {fileID: 5649755387522296636}
   m_Layer: 0
-  m_Name: Limite
-  m_TagString: Terreno
+  m_Name: Limit
+  m_TagString: Limit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1837,7 +1837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296932}
   m_Layer: 0
-  m_Name: Edificio5
+  m_Name: Building5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1966,7 +1966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296940}
   m_Layer: 0
-  m_Name: Edificio2B
+  m_Name: Building2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2287,7 +2287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296948}
   m_Layer: 0
-  m_Name: Edificios
+  m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2322,7 +2322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296950}
   m_Layer: 0
-  m_Name: Edificio3B
+  m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2547,7 +2547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649755387532296956}
   m_Layer: 0
-  m_Name: Edificio2C
+  m_Name: Building2C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
