@@ -38,7 +38,7 @@ public class Deposito2 : MonoBehaviour
 	{
 		PjActual.VaciarInv();
 		PjActual.GetComponent<Frenado>().RestaurarVel();
-		PjActual.GetComponent<Respawn>().Respawnear(transform.position,transform.forward);
+		//PjActual.GetComponent<Respawn>().Respawnear(transform.position,transform.forward);
 		
 		PjActual.GetComponent<Rigidbody>().useGravity = true;
 		for(int i = 0; i < PjColl.Length; i++)
