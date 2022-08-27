@@ -7131,12 +7131,11 @@ GameObject:
   - component: {fileID: 3672163807423826514}
   - component: {fileID: 3720599409130408626}
   - component: {fileID: 3723909858358540744}
-  - component: {fileID: 3723687397562833082}
   - component: {fileID: 3721030573362984356}
   - component: {fileID: 3723718084575303988}
   - component: {fileID: 3720558982164664488}
-  - component: {fileID: 3617315854131600917}
   - component: {fileID: 3617315854131600919}
+  - component: {fileID: 3617315854131600917}
   - component: {fileID: 6076800977864759164}
   m_Layer: 8
   m_Name: Player
@@ -7231,22 +7230,6 @@ MonoBehaviour:
   VelEntrada: 0
   TagDeposito: Deposito
   Frenando: 0
---- !u!114 &3723687397562833082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654d5f04d3094a1498a68d7f36f5854a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AngMax: 70
-  RangMinDer: 4
-  RangMaxDer: 10
-  TiempDeNoColision: 2
 --- !u!114 &3721030573362984356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7353,19 +7336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TiempEsp: 0.5
   TiempNoColl: 1
---- !u!114 &3617315854131600917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f093cad3053e74c47875c0dfb3a11d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveType: 0
 --- !u!114 &3617315854131600919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7378,7 +7348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe2ead9d1b84e8499aadc310ac1a14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 100
+  horizontalInput: Horizontal0
   turnSensitive: 1
   maxAngle: 45
   axleData:
@@ -7394,6 +7365,19 @@ MonoBehaviour:
     visualLeftWheel: {fileID: 3613038396379055804}
     isBack: 1
     isFront: 0
+--- !u!114 &3617315854131600917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617315854131601002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f093cad3053e74c47875c0dfb3a11d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveType: 0
 --- !u!114 &6076800977864759164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ TagManager:
   - Cinta
   - Estante
   - Limit
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
