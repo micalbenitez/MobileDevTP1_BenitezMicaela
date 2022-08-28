@@ -117,18 +117,6 @@ public class GameManager : MonoBehaviour
 					FinTutorial(1);
 				}
 			}
-
-                if (PlayerInfo1.PJ == null && Input.GetKeyDown(KeyCode.W)) {
-                    PlayerInfo1 = new PlayerInfo(0, Player1);
-                    PlayerInfo1.LadoAct = Visualizacion.Lado.Izq;
-                    SetPosicion(PlayerInfo1);
-                }
-
-                if (PlayerInfo2.PJ == null && Input.GetKeyDown(KeyCode.UpArrow)) {
-                    PlayerInfo2 = new PlayerInfo(1, Player2);
-                    PlayerInfo2.LadoAct = Visualizacion.Lado.Der;
-                    SetPosicion(PlayerInfo2);
-                }
 			
 			//cuando los 2 pj terminaron los tutoriales empiesa la carrera
 			if(PlayerInfo1.PJ != null && PlayerInfo2.PJ != null)
@@ -156,12 +144,6 @@ public class GameManager : MonoBehaviour
 				FinalizarCarrera();
 			}
 			
-			/*
-			//para testing
-			TiempoTranscurrido += T.GetDT();
-			DistanciaRecorrida += (Player1.transform.position - PosCamionesCarrera[0]).magnitude;
-			*/
-			
 			if(ConteoRedresivo)
 			{
 				//se asegura de que los vehiculos se queden inmobiles
@@ -183,15 +165,6 @@ public class GameManager : MonoBehaviour
 				{
 					//termina el juego
 				}
-				/*
-				//otro tamaño
-				if(!SeteadoNuevaFontSize && TiempoDeJuego <= 5)
-				{
-					SeteadoNuevaFontSize = true;
-					GS_TiempoGUI.box.fontSize = TamNuevoFont;
-					GS_TiempoGUI.box.normal.textColor = Color.red;
-				}
-				*/
 			}
 			
 			break;
@@ -271,19 +244,6 @@ public class GameManager : MonoBehaviour
 		Player1.CambiarACalibracion();
 		Player2.CambiarACalibracion();
 	}
-		
-	/*
-	public void CambiarADescarga(Player pj)
-	{
-		//en la escena de la pista, activa la camara y las demas propiedades 
-		//de la escena de descarga
-	}
-	
-	public void CambiarAPista(Player pj)//de descarga ala pista de vuelta
-	{
-		//lo mismo pero al revez
-	}
-	*/	
 	
 	void CambiarATutorial()
 	{
@@ -337,25 +297,13 @@ public class GameManager : MonoBehaviour
 		TiempoDeJuego = 0;
 		
 		if(Player1.Dinero > Player2.Dinero)
-		{
-			//lado que gano
-			if(PlayerInfo1.LadoAct == Visualizacion.Lado.Der)
-				DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
-			else
-				DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
-			
+		{			
 			//puntajes
 			DatosPartida.PtsGanador = Player1.Dinero;
 			DatosPartida.PtsPerdedor = Player2.Dinero;
 		}
 		else
-		{
-			//lado que gano
-			if(PlayerInfo2.LadoAct == Visualizacion.Lado.Der)
-				DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
-			else
-				DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
-			
+		{			
 			//puntajes
 			DatosPartida.PtsGanador = Player2.Dinero;
 			DatosPartida.PtsPerdedor = Player1.Dinero;
@@ -366,32 +314,6 @@ public class GameManager : MonoBehaviour
 		
 		Player1.ContrDesc.FinDelJuego();
 		Player2.ContrDesc.FinDelJuego();
-	}
-	
-	//se encarga de posicionar la camara derecha para el jugador que esta a la derecha y viseversa
-	void SetPosicion(PlayerInfo pjInf)
-	{	
-		pjInf.PJ.GetComponent<Visualizacion>().SetLado(pjInf.LadoAct);
-		//en este momento, solo la primera vez, deberia setear la otra camara asi no se superponen
-		pjInf.PJ.ContrCalib.IniciarTesteo();
-		PosSeteada = true;
-		
-		
-		if(pjInf.PJ == Player1)
-		{
-			if(pjInf.LadoAct == Visualizacion.Lado.Izq)
-				Player2.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Der);
-			else
-				Player2.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Izq);
-		}
-		else
-		{
-			if(pjInf.LadoAct == Visualizacion.Lado.Izq)
-				Player1.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Der);
-			else
-				Player1.GetComponent<Visualizacion>().SetLado(Visualizacion.Lado.Izq);
-		}
-		
 	}
 	
 	void CambiarACarrera()
@@ -438,21 +360,6 @@ public class GameManager : MonoBehaviour
 		for(int i = 0; i < ObjsTuto2.Length; i++)
 		{
 			ObjsTuto2[i].SetActiveRecursively(true);
-		}
-		
-		
-		
-		
-		//posiciona los camiones dependiendo de que lado de la pantalla esten
-		if(PlayerInfo1.LadoAct == Visualizacion.Lado.Izq)
-		{
-			Player1.gameObject.transform.position = PosCamionesCarrera[0];
-			Player2.gameObject.transform.position = PosCamionesCarrera[1];
-		}
-		else
-		{
-			Player1.gameObject.transform.position = PosCamionesCarrera[1];
-			Player2.gameObject.transform.position = PosCamionesCarrera[0];
 		}
 		
 		Player1.transform.forward = Vector3 .forward;
@@ -525,8 +432,6 @@ public class GameManager : MonoBehaviour
 		public bool FinCalibrado = false;
 		public bool FinTuto1 = false;
 		public bool FinTuto2 = false;
-		
-		public Visualizacion.Lado LadoAct;
 
         public int TipoDeInput = -1;
 		

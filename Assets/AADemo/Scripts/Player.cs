@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
 	public ContrCalibracion ContrCalib;
 	public ContrTutorial ContrTuto;
 	
-	Visualizacion MiVisualizacion;
-	
 	//------------------------------------------------------------------//
 
 	// Use this for initialization
@@ -29,8 +27,6 @@ public class Player : MonoBehaviour
 	{
 		for(int i = 0; i< Bolasas.Length;i++)
 			Bolasas[i] = null;
-		
-		MiVisualizacion = GetComponent<Visualizacion>();
 	}
 	
 	// Update is called once per frame
@@ -89,26 +85,22 @@ public class Player : MonoBehaviour
 	
 	public void CambiarACalibracion()
 	{
-		MiVisualizacion.CambiarACalibracion();
 		EstAct = Player.Estados.EnCalibracion;
 	}
 	
 	public void CambiarATutorial()
 	{
-		MiVisualizacion.CambiarATutorial();
 		EstAct = Player.Estados.EnTutorial;
 		ContrTuto.Iniciar();
 	}
 	
 	public void CambiarAConduccion()
 	{
-		MiVisualizacion.CambiarAConduccion();
 		EstAct = Player.Estados.EnConduccion;
 	}
 	
 	public void CambiarADescarga()
 	{
-		MiVisualizacion.CambiarADescarga();
 		EstAct = Player.Estados.EnDescarga;
 	}
 	
