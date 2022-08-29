@@ -36,6 +36,6 @@ public class ContrTutorial : MonoBehaviour
 		GM.FinTutorial(Pj.idPlayer);
 		Pj.GetComponent<Frenado>().Frenar();
 		Pj.GetComponent<Rigidbody>().velocity = Vector3.zero;
-		Pj.VaciarInv();
+		Pj.EmptyInventory();
 	}
 }

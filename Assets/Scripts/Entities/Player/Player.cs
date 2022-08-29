@@ -32,12 +32,6 @@ namespace Entities.Player
 
 		public Action<int, int> OnUpdateScore = null;
 
-        private void Start()
-		{
-			for (int i = 0; i < moneyBags.Length; i++)
-				moneyBags[i] = null;
-		}
-
 		public bool AddMoneyBag(MoneyBag moneyBag)
 		{
 			if (currentTotalMoneyBags + 1 <= moneyBags.Length)
@@ -54,24 +48,33 @@ namespace Entities.Player
 			}
 		}
 
-		public void VaciarInv()
+		public bool WithMoneyBags()
+		{
+			for (int i = 0; i < moneyBags.Length; i++)
+			{
+				if (moneyBags[i]) return true;
+			}
+			return false;
+		}
+
+		public void TakeOutOneMoneyBag()
+		{
+			for (int i = 0; i < moneyBags.Length; i++)
+			{
+				if (moneyBags[i])
+				{
+					moneyBags[i] = null;
+					return;
+				}
+			}
+		}
+
+		public void EmptyInventory()
 		{
 			for (int i = 0; i < moneyBags.Length; i++)
 				moneyBags[i] = null;
 
 			currentTotalMoneyBags = 0;
-		}
-
-		public bool ConBolasas()
-		{
-			for (int i = 0; i < moneyBags.Length; i++)
-			{
-				if (moneyBags[i] != null)
-				{
-					return true;
-				}
-			}
-			return false;
 		}
 
 		public void SetContrDesc(ControladorDeDescarga contr)
@@ -103,18 +106,6 @@ namespace Entities.Player
 		public void CambiarADescarga()
 		{
 			state = Player.STATES.Download;
-		}
-
-		public void SacarBolasa()
-		{
-			for (int i = 0; i < moneyBags.Length; i++)
-			{
-				if (moneyBags[i] != null)
-				{
-					moneyBags[i] = null;
-					return;
-				}
-			}
 		}
 	}
 }

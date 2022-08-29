@@ -132,7 +132,7 @@ public class ControladorDeDescarga : MonoBehaviour
 	{
 		PEnMov = p;
 		TempoBonus = p.time;
-		Pj.SacarBolasa();
+		Pj.TakeOutOneMoneyBag();
 		//inicia el contador de tiempo para el bonus
 	}
 	

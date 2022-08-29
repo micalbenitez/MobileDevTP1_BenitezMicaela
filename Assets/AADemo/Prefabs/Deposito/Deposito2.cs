@@ -37,7 +37,7 @@ public class Deposito2 : MonoBehaviour
 	
 	public void Soltar()
 	{
-		PjActual.VaciarInv();
+		PjActual.EmptyInventory();
 		PjActual.GetComponent<Frenado>().RestaurarVel();
 		//PjActual.GetComponent<Respawn>().Respawnear(transform.position,transform.forward);
 		
@@ -55,7 +55,7 @@ public class Deposito2 : MonoBehaviour
 	
 	public void Entrar(Player pj)
 	{
-		if(pj.ConBolasas())
+		if(pj.WithMoneyBags())
 		{
 			
 			PjActual = pj;

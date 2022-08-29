@@ -61,7 +61,7 @@ public class Frenado : MonoBehaviour
 			Deposito2 dep = other.GetComponent<Deposito2>();
 			if(dep.Vacio)
 			{	
-				if(this.GetComponent<Player>().ConBolasas())
+				if(this.GetComponent<Player>().WithMoneyBags())
 				{
 					dep.Entrar(this.GetComponent<Player>());
 					Destino = other.transform.position;
