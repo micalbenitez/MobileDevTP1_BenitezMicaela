@@ -737,6 +737,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1207685859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &30450559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3720599409130408626, guid: a047a6230737b844483cfb66ae63bdaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207685859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7272f53a2d4f7174a8c5cb502d24bb0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &30761340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,10 +1035,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc954af5cc63f844481fbc0834e9bfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPlayer1: {fileID: 1822638289}
-  cameraPlayer2: {fileID: 2074128705}
-  carController1: {fileID: 214258211}
-  carController2: {fileID: 732440494}
+  players:
+  - {fileID: 1865964697}
+  - {fileID: 30450559}
+  gameCameras:
+  - {fileID: 1822638289}
+  - {fileID: 2074128705}
+  carControllers:
+  - {fileID: 214258211}
+  - {fileID: 732440494}
+  uiGame: {fileID: 1239203016}
 --- !u!4 &51186468
 Transform:
   m_ObjectHideFlags: 0
@@ -3267,7 +3285,7 @@ GameObject:
   - component: {fileID: 195221478}
   - component: {fileID: 195221477}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18813,6 +18831,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3720599409130408626, guid: a047a6230737b844483cfb66ae63bdaa,
+        type: 3}
+      propertyPath: idPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6815758955595854199, guid: a047a6230737b844483cfb66ae63bdaa,
         type: 3}
       propertyPath: m_Layer
@@ -19577,8 +19600,9 @@ GameObject:
   - component: {fileID: 1239203014}
   - component: {fileID: 1239203013}
   - component: {fileID: 1239203012}
+  - component: {fileID: 1239203016}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UIGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19666,6 +19690,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1239203016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239203011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df04de85f8098b4b9ca3d8b0e574f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTexts:
+  - {fileID: 195221477}
+  - {fileID: 1269044509}
 --- !u!1 &1239744062
 GameObject:
   m_ObjectHideFlags: 0
@@ -19976,7 +20015,7 @@ GameObject:
   - component: {fileID: 1269044510}
   - component: {fileID: 1269044509}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28485,6 +28524,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855727694}
   m_Mesh: {fileID: 4300410, guid: 0ac3464ae5d3b4445b6a8c68a0da9197, type: 3}
+--- !u!114 &1865964697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3720599409130408626, guid: a047a6230737b844483cfb66ae63bdaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6815758956625591381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7272f53a2d4f7174a8c5cb502d24bb0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867734440
 GameObject:
   m_ObjectHideFlags: 0

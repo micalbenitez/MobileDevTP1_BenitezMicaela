@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Entities.Player;
 
 public class Deposito2 : MonoBehaviour 
 {
@@ -77,7 +78,7 @@ public class Deposito2 : MonoBehaviour
 	
 	public void Entro()
 	{		
-		if(PjActual.IdPlayer == 0)
+		if(PjActual.idPlayer == 0)
 			Contr1.Activar(this);
 		else
 			Contr2.Activar(this);

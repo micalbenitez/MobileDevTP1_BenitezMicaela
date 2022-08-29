@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Entities.Items;
 
 public class Estanteria : ManejoPallets
 {	
 	public Cinta CintaReceptora;//cinta que debe recibir la bolsa
-	public Pallet.Valores Valor;
+	public Pallet.VALUES Valor;
 	PilaPalletMng Contenido;
 	public bool Anim = false;
 	

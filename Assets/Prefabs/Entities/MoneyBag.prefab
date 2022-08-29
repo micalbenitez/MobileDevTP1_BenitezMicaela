@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 13500000}
-  - component: {fileID: 11400002}
   - component: {fileID: 8331554263222239858}
+  - component: {fileID: 11400002}
   m_Layer: 0
   m_Name: MoneyBag
   m_TagString: Untagged
@@ -48,23 +48,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.21920072
   m_Center: {x: 0, y: 0, z: 0.20935182}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cef54225c6a8c489f0492d5d07c565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Monto: 250000
-  TagPlayer: Player
-  ImagenInventario: {fileID: 2800000, guid: ffb09134ec687894f834a6c9d27329fb, type: 3}
-  Particulas: {fileID: 100002}
-  TiempParts: 2.7
 --- !u!95 &8331554263222239858
 Animator:
   serializedVersion: 3
@@ -84,6 +67,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cef54225c6a8c489f0492d5d07c565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 6664576004739559338}
+  particles: {fileID: 100002}
+  Monto: 250000
+  TagPlayer: Player
+  TiempParts: 2.7
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

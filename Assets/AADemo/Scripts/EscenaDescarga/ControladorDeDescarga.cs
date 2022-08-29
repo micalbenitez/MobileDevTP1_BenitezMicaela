@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Entities.Player;
+using Entities.Items;
 
 public class ControladorDeDescarga : MonoBehaviour 
 {
-	System.Collections.Generic.List<Pallet.Valores> Ps = new System.Collections.Generic.List<Pallet.Valores>();
+	System.Collections.Generic.List<Pallet.VALUES> Ps = new System.Collections.Generic.List<Pallet.VALUES>();
 	
 	int Contador = 0;
 	
@@ -63,7 +65,7 @@ public class ControladorDeDescarga : MonoBehaviour
 		{
 			if(TempoBonus > 0)
 			{
-				Bonus = (TempoBonus * (float)PEnMov.Valor) / PEnMov.Tiempo;
+				Bonus = (TempoBonus * (float)PEnMov.value) / PEnMov.time;
 				TempoBonus -= T.GetDT();
 			}
 			else
@@ -95,25 +97,25 @@ public class ControladorDeDescarga : MonoBehaviour
 		
 		GameObject go;
 		//asigna los pallets a las estanterias
-		for(int i = 0; i < Pj.Bolasas.Length; i++)
+		for(int i = 0; i < Pj.moneyBags.Length; i++)
 		{
-			if(Pj.Bolasas[i] != null)
+			if(Pj.moneyBags[i] != null)
 			{
 				Contador++;
 				
-				switch(Pj.Bolasas[i].Monto)
+				switch(Pj.moneyBags[i].value)
 				{
-				case Pallet.Valores.Valor1:
+				case Pallet.VALUES.Value1:
 					go = (GameObject) Instantiate(Pallet1);
 					Est1.Recibir(go.GetComponent<Pallet>());
 					break;
 					
-				case Pallet.Valores.Valor2:
+				case Pallet.VALUES.Value2:
 					go = (GameObject) Instantiate(Pallet2);
 					Est2.Recibir(go.GetComponent<Pallet>());
 					break;
 					
-				case Pallet.Valores.Valor3:
+				case Pallet.VALUES.Value3:
 					go = (GameObject) Instantiate(Pallet3);
 					Est3.Recibir(go.GetComponent<Pallet>());
 					break;
@@ -129,7 +131,7 @@ public class ControladorDeDescarga : MonoBehaviour
 	public void SalidaPallet(Pallet p)
 	{
 		PEnMov = p;
-		TempoBonus = p.Tiempo;
+		TempoBonus = p.time;
 		Pj.SacarBolasa();
 		//inicia el contador de tiempo para el bonus
 	}
@@ -143,7 +145,7 @@ public class ControladorDeDescarga : MonoBehaviour
 		PEnMov = null;
 		Contador--;
 		
-		Pj.Dinero += (int)Bonus;
+		Pj.money += (int)Bonus;
 		
 		if(Contador <= 0)
 		{

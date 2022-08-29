@@ -7129,13 +7129,13 @@ GameObject:
   - component: {fileID: 3613105671873415960}
   - component: {fileID: 3664847922638277618}
   - component: {fileID: 3672163807423826514}
+  - component: {fileID: 3617315854131600919}
   - component: {fileID: 3720599409130408626}
+  - component: {fileID: 3617315854131600917}
+  - component: {fileID: 6076800977864759164}
   - component: {fileID: 3723909858358540744}
   - component: {fileID: 3721030573362984356}
   - component: {fileID: 3720558982164664488}
-  - component: {fileID: 3617315854131600919}
-  - component: {fileID: 3617315854131600917}
-  - component: {fileID: 6076800977864759164}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -7189,7 +7189,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &3720599409130408626
+--- !u!114 &3617315854131600919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7198,22 +7198,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 3617315854131601002}
   m_Enabled: 0
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe2ead9d1b84e8499aadc310ac1a14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  horizontalInput: Horizontal0
+  turnSensitive: 1
+  maxAngle: 45
+  axleData:
+  - rightWheel: {fileID: 6815758956831914339}
+    leftWheel: {fileID: 6815758955789605090}
+    visualRightWheel: {fileID: 3613482328461110666}
+    visualLeftWheel: {fileID: 3613560655802031506}
+    isBack: 0
+    isFront: 1
+  - rightWheel: {fileID: 6815758956633333663}
+    leftWheel: {fileID: 6815758957038709192}
+    visualRightWheel: {fileID: 3613484589846565776}
+    visualLeftWheel: {fileID: 3613038396379055804}
+    isBack: 1
+    isFront: 0
+--- !u!114 &3720599409130408626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617315854131601002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7272f53a2d4f7174a8c5cb502d24bb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dinero: 0
-  IdPlayer: 0
-  Bolasas:
+  state: 1
+  money: 0
+  idPlayer: 0
+  moneyBags:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  TagBolsas: 
-  EstAct: 1
-  EnConduccion: 1
-  EnDescarga: 0
+  isDriving: 1
+  isDownloading: 0
   ContrDesc: {fileID: 0}
   ContrCalib: {fileID: 0}
   ContrTuto: {fileID: 0}
+--- !u!114 &3617315854131600917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617315854131601002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f093cad3053e74c47875c0dfb3a11d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveType: 0
+--- !u!114 &6076800977864759164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617315854131601002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea43c58fa021b9498095cd820087258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3723909858358540744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7261,60 +7314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TiempEsp: 0.5
   TiempNoColl: 1
---- !u!114 &3617315854131600919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe2ead9d1b84e8499aadc310ac1a14e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  horizontalInput: Horizontal0
-  turnSensitive: 1
-  maxAngle: 45
-  axleData:
-  - rightWheel: {fileID: 6815758956831914339}
-    leftWheel: {fileID: 6815758955789605090}
-    visualRightWheel: {fileID: 3613482328461110666}
-    visualLeftWheel: {fileID: 3613560655802031506}
-    isBack: 0
-    isFront: 1
-  - rightWheel: {fileID: 6815758956633333663}
-    leftWheel: {fileID: 6815758957038709192}
-    visualRightWheel: {fileID: 3613484589846565776}
-    visualLeftWheel: {fileID: 3613038396379055804}
-    isBack: 1
-    isFront: 0
---- !u!114 &3617315854131600917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f093cad3053e74c47875c0dfb3a11d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveType: 0
---- !u!114 &6076800977864759164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea43c58fa021b9498095cd820087258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3617333392429094604
 GameObject:
   m_ObjectHideFlags: 0

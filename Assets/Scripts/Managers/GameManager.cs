@@ -2,33 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Entities.Player;
+using UI;
 
 namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
+        [Header("Players")]
+        public Player[] players = null;
+
         [Header("Game cameras")]
-        public Camera cameraPlayer1 = null;
-        public Camera cameraPlayer2 = null;
+        public Camera[] gameCameras = null;
 
         [Header("Car controller")]
-        public CarController carController1 = null;
-        public CarController carController2 = null;
+        public CarController[] carControllers = null;
+
+        [Header("Game UI")]
+        public UIGame uiGame = null;
 
         private void Awake()
         {
-            cameraPlayer1.gameObject.SetActive(false);
-            cameraPlayer2.gameObject.SetActive(false);
-            carController1.enabled = false;
-            carController2.enabled = false;
+            SetGameObjectsState(false);
         }
 
         public void StartGame()
         {
-            cameraPlayer1.gameObject.SetActive(true);
-            cameraPlayer2.gameObject.SetActive(true);
-            carController1.enabled = true;
-            carController2.enabled = true;
+            SetGameObjectsState(true);
+        }
+
+        private void SetGameObjectsState(bool state)
+        {
+            for (int i = 0; i < gameCameras.Length; i++)
+                gameCameras[i].gameObject.SetActive(state);
+
+            for (int i = 0; i < carControllers.Length; i++)
+                carControllers[i].enabled = state;
+
+            uiGame.gameObject.SetActive(state);
+        }
+
+        private void OnEnable()
+        {
+            for (int i = 0; i < players.Length; i++)
+                players[i].OnUpdateScore += uiGame.UpdateScore;
+        }
+
+        private void OnDisable()
+        {
+            for (int i = 0; i < players.Length; i++)
+                players[i].OnUpdateScore -= uiGame.UpdateScore;
         }
     }
 }

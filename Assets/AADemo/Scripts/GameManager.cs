@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Entities.Player;
 
 public class GameManager : MonoBehaviour
 {
@@ -296,17 +297,17 @@ public class GameManager : MonoBehaviour
 		
 		TiempoDeJuego = 0;
 		
-		if(Player1.Dinero > Player2.Dinero)
+		if(Player1.money > Player2.money)
 		{			
 			//puntajes
-			DatosPartida.PtsGanador = Player1.Dinero;
-			DatosPartida.PtsPerdedor = Player2.Dinero;
+			DatosPartida.PtsGanador = Player1.money;
+			DatosPartida.PtsPerdedor = Player2.money;
 		}
 		else
 		{			
 			//puntajes
-			DatosPartida.PtsGanador = Player2.Dinero;
-			DatosPartida.PtsPerdedor = Player1.Dinero;
+			DatosPartida.PtsGanador = Player2.money;
+			DatosPartida.PtsPerdedor = Player1.money;
 		}
 		
 		Player1.GetComponent<Frenado>().Frenar();

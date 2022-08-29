@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Entities.Player;
 
 public class Frenado : MonoBehaviour 
 {

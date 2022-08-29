@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using Entities.Player;
+using Entities.Items;
 
 public class ContrCalibracion : MonoBehaviour
 {
@@ -59,7 +61,7 @@ public class ContrCalibracion : MonoBehaviour
 	{
 		EstAct = ContrCalibracion.Estados.Finalizado;
         palletsMover.enabled = false;
-        GM.FinCalibracion(Pj.IdPlayer);
+        GM.FinCalibracion(Pj.idPlayer);
 	}
 	
 	void SetActivComp(bool estado)
