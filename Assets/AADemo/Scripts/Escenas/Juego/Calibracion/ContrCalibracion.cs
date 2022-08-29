@@ -25,7 +25,6 @@ public class ContrCalibracion : MonoBehaviour
 	void Start () 
 	{
         palletsMover.enabled = false;
-        Pj.ContrCalib = this;
 		
 		GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
 		

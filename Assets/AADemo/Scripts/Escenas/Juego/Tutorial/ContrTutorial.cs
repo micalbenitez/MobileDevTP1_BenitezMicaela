@@ -15,8 +15,6 @@ public class ContrTutorial : MonoBehaviour
 	void Start () 
 	{
 		GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
-		
-		Pj.ContrTuto = this;
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -27,14 +25,14 @@ public class ContrTutorial : MonoBehaviour
 	
 	public void Iniciar()
 	{
-		Pj.GetComponent<Frenado>().RestaurarVel();
+		//Pj.GetComponent<PlayerDownload>().RestaurarVel();
 	}
 	
 	public void Finalizar()
 	{
 		Finalizado = true;
 		GM.FinTutorial(Pj.idPlayer);
-		Pj.GetComponent<Frenado>().Frenar();
+		//Pj.GetComponent<PlayerDownload>().Frenar();
 		Pj.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		Pj.EmptyInventory();
 	}

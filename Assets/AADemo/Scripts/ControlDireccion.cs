@@ -40,20 +40,6 @@ public class ControlDireccion : MonoBehaviour
 			
 		case TipoInput.Kinect:
 			
-			//print("Angulo: "+Angulo());
-			/*
-			if(ManoIzq.position.y > ManoDer.position.y)
-			{
-				DirAct = Sentido.Der;
-				Diferencia = ManoIzq.position.y - ManoDer.position.y;
-			}
-			else
-			{
-				DirAct = Sentido.Izq;
-				Diferencia = ManoDer.position.y - ManoIzq.position.y;
-			}
-			*/
-			
 			if(ManoIzq.position.y > ManoDer.position.y)
 			{
 				DirAct = Sentido.Der;
@@ -112,26 +98,7 @@ public class ControlDireccion : MonoBehaviour
 	}
 
 	public float GetGiro()
-	{
-		/*
-		switch(DirAct)
-			{
-			case Sentido.Der:
-				if(Angulo() <= MaxAng)
-					return Angulo() / MaxAng;
-				else
-					return 1;
-				break;
-				
-			case Sentido.Izq:
-				if(Angulo() <= MaxAng)
-					return (Angulo() / MaxAng) * (-1);
-				else
-					return (-1);
-				break;
-			}
-		*/
-		
+	{		
 		return Giro;
 	}
 	

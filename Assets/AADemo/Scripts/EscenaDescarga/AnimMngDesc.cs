@@ -3,22 +3,13 @@ using System.Collections;
 
 public class AnimMngDesc : MonoBehaviour 
 {
-	public string AnimEntrada = "Entrada";
-	public string AnimSalida = "Salida";
-	public ControladorDeDescarga ContrDesc;
+	public Download ContrDesc;
 	
 	enum AnimEnCurso{Salida,Entrada,Nada}
-	AnimEnCurso AnimAct = AnimMngDesc.AnimEnCurso.Nada;
+	AnimEnCurso AnimAct = AnimEnCurso.Nada;
 	
 	public GameObject PuertaAnimada;
 	
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
 	void Update () 
 	{
 		if(Input.GetKeyDown(KeyCode.Z))
@@ -28,37 +19,31 @@ public class AnimMngDesc : MonoBehaviour
 		
 		switch(AnimAct)
 		{
-		case AnimEnCurso.Entrada:
-			
-			if(!GetComponent<Animation>().IsPlaying(AnimEntrada))
+		case AnimEnCurso.Entrada:			
+			if(!GetComponent<Animation>().IsPlaying("Entrada"))
 			{
-				AnimAct = AnimMngDesc.AnimEnCurso.Nada;
+				AnimAct = AnimEnCurso.Nada;
 				ContrDesc.FinAnimEntrada();
-				print("fin Anim Entrada");
-			}
-			
+			}			
 			break;
 			
-		case AnimEnCurso.Salida:
-			
-			if(!GetComponent<Animation>().IsPlaying(AnimSalida))
+		case AnimEnCurso.Salida:			
+			if(!GetComponent<Animation>().IsPlaying("Salida"))
 			{
-				AnimAct = AnimMngDesc.AnimEnCurso.Nada;
+				AnimAct = AnimEnCurso.Nada;
 				ContrDesc.FinAnimSalida();
-				print("fin Anim Salida");
-			}
-			
+			}			
 			break;
-			
-		case AnimEnCurso.Nada:
+
+		default:
 			break;
 		}
 	}
 	
 	public void Entrar()
 	{
-		AnimAct = AnimMngDesc.AnimEnCurso.Entrada;
-		GetComponent<Animation>().Play(AnimEntrada);
+		AnimAct = AnimEnCurso.Entrada;
+		GetComponent<Animation>().Play("Entrada");
 		
 		if(PuertaAnimada != null)
 		{
@@ -70,8 +55,8 @@ public class AnimMngDesc : MonoBehaviour
 	
 	public void Salir()
 	{
-		AnimAct = AnimMngDesc.AnimEnCurso.Salida;	
-		GetComponent<Animation>().Play(AnimSalida);
+		AnimAct = AnimEnCurso.Salida;	
+		GetComponent<Animation>().Play("Salida");
 		
 		if(PuertaAnimada != null)
 		{

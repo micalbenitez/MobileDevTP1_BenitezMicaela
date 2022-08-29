@@ -24,10 +24,6 @@ namespace Entities.Player
 		public bool isDriving = true;
 		public bool isDownloading = false;
 
-		public ControladorDeDescarga ContrDesc;
-		public ContrCalibracion ContrCalib;
-		public ContrTutorial ContrTuto;
-
 		private int currentTotalMoneyBags = 0;
 
 		public Action<int, int> OnUpdateScore = null;
@@ -77,35 +73,24 @@ namespace Entities.Player
 			currentTotalMoneyBags = 0;
 		}
 
-		public void SetContrDesc(ControladorDeDescarga contr)
-		{
-			ContrDesc = contr;
-		}
-
-		public ControladorDeDescarga GetContr()
-		{
-			return ContrDesc;
-		}
-
 		public void CambiarACalibracion()
 		{
-			state = Player.STATES.Calibration;
+			state = STATES.Calibration;
 		}
 
 		public void CambiarATutorial()
 		{
-			state = Player.STATES.Tutorial;
-			ContrTuto.Iniciar();
+			state = STATES.Tutorial;
 		}
 
 		public void CambiarAConduccion()
 		{
-			state = Player.STATES.Driving;
+			state = STATES.Driving;
 		}
 
 		public void CambiarADescarga()
 		{
-			state = Player.STATES.Download;
+			state = STATES.Download;
 		}
 	}
 }

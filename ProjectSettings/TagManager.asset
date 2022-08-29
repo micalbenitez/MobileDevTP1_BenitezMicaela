@@ -5,13 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstaculo
-  - Deposito
   - FinTaxi
   - Mano
   - Cinta
   - Estante
   - Limit
   - Checkpoint
+  - Terreno
+  - Deposit
   layers:
   - Default
   - TransparentFX

@@ -56,17 +56,6 @@ public class GameManager : MonoBehaviour
 	public GameObject[] ObjsCarrera;
 	//de las descargas se encarga el controlador de descargas
 	
-	//para saber que el los ultimos 5 o 10 segs se cambie de tamaño la font del tiempo
-	//bool SeteadoNuevaFontSize = false;
-	//int TamOrigFont = 75;
-	//int TamNuevoFont = 75;
-	
-	/*
-	//para el testing
-	public float DistanciaRecorrida = 0;
-	public float TiempoTranscurrido = 0;
-	*/
-	
 	IList<int> users;
 	
 	//--------------------------------------------------------//
@@ -79,10 +68,6 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		IniciarCalibracion();
-		
-		//para testing
-		//PosCamionesCarrera[0].x+=100;
-		//PosCamionesCarrera[1].x+=100;
 	}
 	
 	void Update()
@@ -146,11 +131,7 @@ public class GameManager : MonoBehaviour
 			}
 			
 			if(ConteoRedresivo)
-			{
-				//se asegura de que los vehiculos se queden inmobiles
-				//Player1.rigidbody.velocity = Vector3.zero;
-				//Player2.rigidbody.velocity = Vector3.zero;
-				
+			{				
 				ConteoParaInicion -= T.GetDT();
 				if(ConteoParaInicion < 0)
 				{
@@ -259,7 +240,7 @@ public class GameManager : MonoBehaviour
 		{
 			ObjsCalibracion1[i].SetActiveRecursively(false);
 		}
-		Player1.GetComponent<Frenado>().Frenar();
+		//Player1.GetComponent<PlayerDownload>().Frenar();
 		Player1.CambiarATutorial();
 		Player1.gameObject.transform.position = PosCamion1Tuto;//posiciona el camion
 		Player1.transform.forward = Vector3.forward;
@@ -276,7 +257,7 @@ public class GameManager : MonoBehaviour
 		{
 			ObjsTuto2[i].SetActiveRecursively(true);
 		}
-		Player2.GetComponent<Frenado>().Frenar();
+		//Player2.GetComponent<PlayerDownload>().Frenar();
 		Player2.gameObject.transform.position = PosCamion2Tuto;
 		Player2.CambiarATutorial();
 		Player2.transform.forward = Vector3 .forward;
@@ -284,10 +265,10 @@ public class GameManager : MonoBehaviour
 	
 	void EmpezarCarrera()
 	{
-		Player1.GetComponent<Frenado>().RestaurarVel();
+		//Player1.GetComponent<PlayerDownload>().RestaurarVel();
 		Player1.GetComponent<ControlDireccion>().Habilitado = true;
 			
-		Player2.GetComponent<Frenado>().RestaurarVel();
+		//Player2.GetComponent<PlayerDownload>().RestaurarVel();
 		Player2.GetComponent<ControlDireccion>().Habilitado = true;
 	}
 	
@@ -310,11 +291,8 @@ public class GameManager : MonoBehaviour
 			DatosPartida.PtsPerdedor = Player1.money;
 		}
 		
-		Player1.GetComponent<Frenado>().Frenar();
-		Player2.GetComponent<Frenado>().Frenar();
-		
-		Player1.ContrDesc.FinDelJuego();
-		Player2.ContrDesc.FinDelJuego();
+		//Player1.GetComponent<PlayerDownload>().Frenar();
+		//Player2.GetComponent<PlayerDownload>().Frenar();
 	}
 	
 	void CambiarACarrera()
@@ -327,16 +305,7 @@ public class GameManager : MonoBehaviour
 		for(int i = 0; i < ObjsCarrera.Length; i++)
 		{
 			ObjsCarrera[i].SetActiveRecursively(true);
-		}
-		
-		/*
-		for(int i = 0; i < ObjsTuto1.Length; i++)
-		{
-			ObjsTuto1[i].SetActiveRecursively(false);
-			ObjsTuto2[i].SetActiveRecursively(false);
-		}
-		*/
-		
+		}		
 		
 		//desactivacion de la calibracion
 		PlayerInfo1.FinCalibrado = true;
@@ -364,16 +333,16 @@ public class GameManager : MonoBehaviour
 		}
 		
 		Player1.transform.forward = Vector3 .forward;
-		Player1.GetComponent<Frenado>().Frenar();
+		//Player1.GetComponent<PlayerDownload>().Frenar();
 		Player1.CambiarAConduccion();
 			
 		Player2.transform.forward = Vector3 .forward;
-		Player2.GetComponent<Frenado>().Frenar();
+		//Player2.GetComponent<PlayerDownload>().Frenar();
 		Player2.CambiarAConduccion();
 		
 		//los deja andando
-		Player1.GetComponent<Frenado>().RestaurarVel();
-		Player2.GetComponent<Frenado>().RestaurarVel();
+		//Player1.GetComponent<PlayerDownload>().RestaurarVel();
+		//Player2.GetComponent<PlayerDownload>().RestaurarVel();
 		//cancela la direccion
 		Player1.GetComponent<ControlDireccion>().Habilitado = false;
 		Player2.GetComponent<ControlDireccion>().Habilitado = false;
@@ -417,9 +386,6 @@ public class GameManager : MonoBehaviour
 				CambiarACarrera();//CambiarATutorial();
 		
 	}
-	
-	
-	
 	
 	[System.Serializable]
 	public class PlayerInfo

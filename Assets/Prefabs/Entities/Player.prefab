@@ -7134,7 +7134,6 @@ GameObject:
   - component: {fileID: 3617315854131600917}
   - component: {fileID: 6076800977864759164}
   - component: {fileID: 3723909858358540744}
-  - component: {fileID: 3721030573362984356}
   - component: {fileID: 3720558982164664488}
   m_Layer: 8
   m_Name: Player
@@ -7274,7 +7273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f4c07e366bee8b48a0ff7d6f892c9ee, type: 3}
   m_Name: 
@@ -7282,24 +7281,6 @@ MonoBehaviour:
   VelEntrada: 0
   TagDeposito: Deposito
   Frenando: 0
---- !u!114 &3721030573362984356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617315854131601002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3956470d722822943b0d96b2ff061d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputAct: 2
-  ManoDer: {fileID: 0}
-  ManoIzq: {fileID: 0}
-  MaxAng: 90
-  DesSencibilidad: 15
-  Habilitado: 1
 --- !u!114 &3720558982164664488
 MonoBehaviour:
   m_ObjectHideFlags: 0

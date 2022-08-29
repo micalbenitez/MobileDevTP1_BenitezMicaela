@@ -4,7 +4,7 @@ using Entities.Items;
 
 public class Estanteria : ManejoPallets
 {	
-	public Cinta CintaReceptora;//cinta que debe recibir la bolsa
+	public Band CintaReceptora;//cinta que debe recibir la bolsa
 	public Pallet.VALUES Valor;
 	PilaPalletMng Contenido;
 	public bool Anim = false;
@@ -65,20 +65,19 @@ public class Estanteria : ManejoPallets
 	public override void Dar(ManejoPallets receptor)
 	{
         if (Tenencia()) {
-            if (Controlador.GetPalletEnMov() == null) {
-                if (receptor.Recibir(Pallets[0])) {
-                    //enciende la cinta y el indicador
-                    //cambia la textura de cuantos pallet le queda
-                    CintaReceptora.Encender();
-                    Controlador.SalidaPallet(Pallets[0]);
-                    Pallets[0].GetComponent<Renderer>().enabled = true;
-                    Pallets.RemoveAt(0);
-                    Contenido.Sacar();
-                    ApagarAnim();
-                    //Debug.Log("pallet entregado a Mano de Estanteria");
-                }
-            }
-        }
+			if (receptor.Recibir(Pallets[0]))
+			{
+				//enciende la cinta y el indicador
+				//cambia la textura de cuantos pallet le queda
+				CintaReceptora.Encender();
+				Controlador.SalidaPallet(Pallets[0]);
+				Pallets[0].GetComponent<Renderer>().enabled = true;
+				Pallets.RemoveAt(0);
+				Contenido.Sacar();
+				ApagarAnim();
+				//Debug.Log("pallet entregado a Mano de Estanteria");
+			}
+		}
     }
 	
 	public override bool Recibir (Pallet pallet)
