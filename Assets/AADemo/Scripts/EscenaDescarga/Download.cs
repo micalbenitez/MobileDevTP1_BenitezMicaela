@@ -55,7 +55,7 @@ public class Download : MonoBehaviour
 		}
 
 		//animacion
-		ObjAnimado.Entrar();		
+		ObjAnimado.Enter();		
 	}
 	
 	//cuando sale de un estante
@@ -96,7 +96,7 @@ public class Download : MonoBehaviour
 
 	private void Finalizacion()
 	{
-		ObjAnimado.Salir();
+		ObjAnimado.Exit();
 	}
 	
 	public void FinAnimEntrada()
