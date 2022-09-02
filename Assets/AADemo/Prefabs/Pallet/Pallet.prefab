@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7ffc2ff55c76044adea9f1c475e92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100000
-  time: 0
+  value: 250000
+  time: 3
   CintaReceptora: {fileID: 0}
   Portador: {fileID: 0}
   TiempEnCinta: 2

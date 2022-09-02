@@ -25,15 +25,18 @@ namespace Download
 		{
 			if (Possession())
 			{
-				if (receptor.Receive(pallets[0]))
+				if (download.GetPalletEnMov() == null)
 				{
-					/// Turn on the tape and indicator
-					band.TurnOn();
-					download.TakeOutPallet();
-					pallets[0].GetComponent<Renderer>().enabled = true;
-					pallets.RemoveAt(0);
-					palletManager.TakeOut();
-					TurnOffAnimation();
+					if (receptor.Receive(pallets[0]))
+					{
+						/// Turn on the tape and indicator
+						band.TurnOn();
+						download.TakeOutPallet(pallets[0]);
+						pallets[0].GetComponent<Renderer>().enabled = true;
+						pallets.RemoveAt(0);
+						palletManager.TakeOut();
+						TurnOffAnimation();
+					}
 				}
 			}
 		}

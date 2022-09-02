@@ -10,9 +10,10 @@ namespace Download
 		[Header("Player")]
 		public Player player = null;
 
-		[Header("Download scene and camera")]
+		[Header("Download scene")]
 		public GameObject scene = null;
 		public GameObject downloadCamera = null;
+		public GameObject instructive = null;
 
 		[Header("Download objects")]
 		public Pallet pallet = null;
@@ -20,17 +21,41 @@ namespace Download
 		public Band band = null;
 		public BrinksSucursal brinksSucursal = null;
 
-		[Header("Paller bonus")]
-		public float bonus = 0;
-
 		private int counter = 0;
 		private Deposit deposit = null;
+
+
+		float TempoBonus;
+		public float bonus = 0;
+		public Pallet PEnMov = null;
 
 		private void Start()
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
+			instructive.SetActive(false);
 			if (brinksSucursal) brinksSucursal.download = this;
+		}
+
+		private void Update()
+		{
+			TimeCounter();
+		}
+
+		private void TimeCounter()
+		{
+			if (PEnMov != null)
+			{
+				if (TempoBonus > 0)
+				{
+					bonus = (TempoBonus * (float)PEnMov.value) / PEnMov.time;
+					TempoBonus -= T.GetDT();
+				}
+				else
+				{
+					bonus = 0;
+				}
+			}
 		}
 
 		public void Active(Deposit deposit)
@@ -38,6 +63,7 @@ namespace Download
 			this.deposit = deposit; /// Receive the deposit so you know when to let it go to the truck
 			scene.SetActive(true);
 			downloadCamera.SetActive(true);
+			instructive.SetActive(false);
 			player.ChangePlayerState(Player.STATES.Download);
 
 			/// Assign the pallets to the racks
@@ -65,10 +91,11 @@ namespace Download
 		/// <summary>
 		/// When the pallet leaves the truck
 		/// </summary>
-		public void TakeOutPallet()
+		public void TakeOutPallet(Pallet pallet)
 		{
+			PEnMov = pallet;
+			TempoBonus = pallet.time;
 			player.TakeOutOneMoneyBag();
-			//inicia el contador de tiempo para el bonus
 		}
 
 		/// <summary>
@@ -76,11 +103,11 @@ namespace Download
 		/// </summary>
 		public void ArrivePallet()
 		{
-			//termina el contador y suma los pts
-
+			PEnMov = null;
 			counter--;
 
 			player.money += (int)bonus;
+			player.OnUpdateScore?.Invoke(player.idPlayer, player.money);
 
 			if (counter <= 0) EndDownload();
 			else shelve.TurnOnAnimation();
@@ -100,6 +127,7 @@ namespace Download
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
+			instructive.SetActive(false);
 			player.ChangePlayerState(Player.STATES.Driving);
 			deposit.Exit();
 		}
@@ -112,6 +140,11 @@ namespace Download
 			/// Method called by the GameManager to notify that the game is over
 			shelve.enabled = false;
 			band.enabled = false;
+		}
+
+		public Pallet GetPalletEnMov()
+		{
+			return PEnMov;
 		}
 	}
 }
