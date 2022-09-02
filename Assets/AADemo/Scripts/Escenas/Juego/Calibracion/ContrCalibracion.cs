@@ -29,7 +29,7 @@ public class ContrCalibracion : MonoBehaviour
 		GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
 		
 		P.CintaReceptora = Llegada.gameObject;
-		Partida.Recibir(P);
+		Partida.Receive(P);
 		
 		SetActivComp(false);
 	}

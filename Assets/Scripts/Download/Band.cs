@@ -20,23 +20,23 @@ namespace Download
 
 		private void PalletMovement()
         {
-			for (int i = 0; i < Pallets.Count; i++)
+			for (int i = 0; i < pallets.Count; i++)
 			{
-				if (Pallets[i].GetComponent<Renderer>().enabled)
+				if (pallets[i].GetComponent<Renderer>().enabled)
 				{
-					if (!Pallets[i].GetComponent<Pallet>().EnSmoot)
+					if (!pallets[i].GetComponent<Pallet>().EnSmoot)
 					{
-						Pallets[i].GetComponent<Pallet>().enabled = false;
-						Pallets[i].TempoEnCinta += T.GetDT();
+						pallets[i].GetComponent<Pallet>().enabled = false;
+						pallets[i].TempoEnCinta += T.GetDT();
 
-						Pallets[i].transform.position += transform.right * speed * T.GetDT();
-						Vector3 vAux = Pallets[i].transform.localPosition;
+						pallets[i].transform.position += transform.right * speed * T.GetDT();
+						Vector3 vAux = pallets[i].transform.localPosition;
 						vAux.y = 3.61f; /// specific height
-						Pallets[i].transform.localPosition = vAux;
+						pallets[i].transform.localPosition = vAux;
 
-						if (Pallets[i].TempoEnCinta >= Pallets[i].TiempEnCinta)
+						if (pallets[i].TempoEnCinta >= pallets[i].TiempEnCinta)
 						{
-							Pallets[i].TempoEnCinta = 0;
+							pallets[i].TempoEnCinta = 0;
 							pallet.gameObject.SetActive(false);
 						}
 					}
@@ -47,15 +47,15 @@ namespace Download
 		private void OnTriggerEnter(Collider other)
 		{
 			ManejoPallets recept = other.GetComponent<ManejoPallets>();
-			if (recept != null) Dar(recept);
+			if (recept != null) Give(recept);
 		}
 
-		public override bool Recibir(Pallet pallet)
+		public override bool Receive(Pallet pallet)
 		{
-			Controlador.ArrivePallet();
+			download.ArrivePallet();
 			pallet.Portador = gameObject;
 			this.pallet = pallet.transform;
-			base.Recibir(pallet);
+			base.Receive(pallet);
 			TurnOff();
 
 			return true;

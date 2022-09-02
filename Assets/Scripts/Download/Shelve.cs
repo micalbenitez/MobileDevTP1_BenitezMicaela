@@ -11,41 +11,40 @@ namespace Download
 		[Header("Band")]
 		public Band band = null;
 		[Header("Pallets manager")]
-		public PalletManager pallets = null;
+		public PalletManager palletManager = null;
 		[Header("Pallets value")]
 		public Pallet.VALUES Valor = Pallet.VALUES.Value1;
 
 		private void OnTriggerEnter(Collider other)
 		{
 			ManejoPallets recept = other.GetComponent<ManejoPallets>();
-			if (recept != null) Dar(recept);
+			if (recept != null) Give(recept);
 		}
 
-		public override void Dar(ManejoPallets receptor)
+		public override void Give(ManejoPallets receptor)
 		{
-			if (Tenencia())
+			if (Possession())
 			{
-				if (receptor.Recibir(Pallets[0]))
+				if (receptor.Receive(pallets[0]))
 				{
-					//enciende la cinta y el indicador
-					//cambia la textura de cuantos pallet le queda
+					/// Turn on the tape and indicator
 					band.TurnOn();
-					Controlador.TakeOutPallet();
-					Pallets[0].GetComponent<Renderer>().enabled = true;
-					Pallets.RemoveAt(0);
-					pallets.TakeOut();
+					download.TakeOutPallet();
+					pallets[0].GetComponent<Renderer>().enabled = true;
+					pallets.RemoveAt(0);
+					palletManager.TakeOut();
 					TurnOffAnimation();
 				}
 			}
 		}
 
-		public override bool Recibir(Pallet pallet)
+		public override bool Receive(Pallet pallet)
 		{
 			pallet.CintaReceptora = band.gameObject;
 			pallet.Portador = this.gameObject;
-			pallets.Add();
+			palletManager.Add();
 			pallet.GetComponent<Renderer>().enabled = false;
-			return base.Recibir(pallet);
+			return base.Receive(pallet);
 		}
 
 		public void TurnOnAnimation()

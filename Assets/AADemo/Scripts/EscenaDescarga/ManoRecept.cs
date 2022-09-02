@@ -8,7 +8,7 @@ public class ManoRecept : ManejoPallets
 	
 	void FixedUpdate () 
 	{
-		TengoPallet = Tenencia();
+		TengoPallet = Possession();
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -16,40 +16,40 @@ public class ManoRecept : ManejoPallets
 		ManejoPallets recept = other.GetComponent<ManejoPallets>();
 		if(recept != null)
 		{
-			Dar(recept);
+			Give(recept);
 		}
 		
 	}
 	
 	//---------------------------------------------------------//	
 	
-	public override bool Recibir(Pallet pallet)
+	public override bool Receive(Pallet pallet)
 	{
-		if(!Tenencia())
+		if(!Possession())
 		{
 			pallet.Portador = this.gameObject;
-			base.Recibir(pallet);
+			base.Receive(pallet);
 			return true;
 		}
 		else
 			return false;
 	}
 	
-	public override void Dar(ManejoPallets receptor)
+	public override void Give(ManejoPallets receptor)
 	{
 		//Debug.Log(gameObject.name+ " / Dar()");
 		switch (receptor.tag)
 		{
 		case "Mano":
-			if(Tenencia())
+			if(Possession())
 			{
 				//Debug.Log(gameObject.name+ " / Dar()"+" / Tenencia=true");
 				if(receptor.name == "Right Hand")
 				{
-					if(receptor.Recibir(Pallets[0]))
+					if(receptor.Receive(pallets[0]))
 					{
 						//Debug.Log(gameObject.name+ " / Dar()"+" / Tenencia=true"+" / receptor.Recibir(Pallets[0])=true");
-						Pallets.RemoveAt(0);
+						pallets.RemoveAt(0);
 						//Debug.Log("pallet entregado a Mano de Mano");
 					}
 				}
@@ -58,11 +58,11 @@ public class ManoRecept : ManejoPallets
 			break;
 			
 		case "Cinta":
-			if(Tenencia())
+			if(Possession())
 			{
-				if(receptor.Recibir(Pallets[0]))
+				if(receptor.Receive(pallets[0]))
 				{
-					Pallets.RemoveAt(0);
+					pallets.RemoveAt(0);
 					//Debug.Log("pallet entregado a Cinta de Mano");
 				}
 			}

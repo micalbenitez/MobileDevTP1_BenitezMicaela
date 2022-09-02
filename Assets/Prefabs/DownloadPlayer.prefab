@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e376e7b60a42d74b910ffb09b3fa25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controlador: {fileID: 4732317770291329728}
+  download: {fileID: 4732317770291329728}
   speed: 3.5
   bandTubeAnimation: {fileID: 3155996047842436954}
 --- !u!1 &4732317768558359948
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9affb8c847ec48e4ea4065d6523b3e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controlador: {fileID: 4732317770291329728}
+  download: {fileID: 0}
   miInput: 0
   Desde: {fileID: 4732317769259605078}
   Hasta: {fileID: 4732317768547545354}
@@ -4552,10 +4552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bcf2ab0dc5bd945bcef5afb60d8b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controlador: {fileID: 4732317770291329728}
+  download: {fileID: 4732317770291329728}
   shelveFloorAnimation: {fileID: 5420208010708503722}
   band: {fileID: 4732317768547545354}
-  pallets: {fileID: 4732317769259605077}
+  palletManager: {fileID: 4732317769259605077}
   Valor: 250000
 --- !u!1 &4732317769275597349
 GameObject:

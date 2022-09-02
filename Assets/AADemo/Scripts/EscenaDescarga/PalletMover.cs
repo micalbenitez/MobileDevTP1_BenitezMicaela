@@ -17,24 +17,24 @@ public class PalletMover : ManejoPallets {
     private void Update() {
         switch (miInput) {
             case MoveType.WASD:
-                if (!Tenencia() && Desde.Tenencia() && Input.GetKeyDown(KeyCode.A)) {
+                if (!Possession() && Desde.Possession() && Input.GetKeyDown(KeyCode.A)) {
                     PrimerPaso();
                 }
-                if (Tenencia() && Input.GetKeyDown(KeyCode.S)) {
+                if (Possession() && Input.GetKeyDown(KeyCode.S)) {
                     SegundoPaso();
                 }
-                if (segundoCompleto && Tenencia() && Input.GetKeyDown(KeyCode.D)) {
+                if (segundoCompleto && Possession() && Input.GetKeyDown(KeyCode.D)) {
                     TercerPaso();
                 }
                 break;
             case MoveType.Arrows:
-                if (!Tenencia() && Desde.Tenencia() && Input.GetKeyDown(KeyCode.LeftArrow)) {
+                if (!Possession() && Desde.Possession() && Input.GetKeyDown(KeyCode.LeftArrow)) {
                     PrimerPaso();
                 }
-                if (Tenencia() && Input.GetKeyDown(KeyCode.DownArrow)) {
+                if (Possession() && Input.GetKeyDown(KeyCode.DownArrow)) {
                     SegundoPaso();
                 }
-                if (segundoCompleto && Tenencia() && Input.GetKeyDown(KeyCode.RightArrow)) {
+                if (segundoCompleto && Possession() && Input.GetKeyDown(KeyCode.RightArrow)) {
                     TercerPaso();
                 }
                 break;
@@ -44,29 +44,29 @@ public class PalletMover : ManejoPallets {
     }
 
     void PrimerPaso() {
-        Desde.Dar(this);
+        Desde.Give(this);
         segundoCompleto = false;
     }
     void SegundoPaso() {
-        base.Pallets[0].transform.position = transform.position;
+        base.pallets[0].transform.position = transform.position;
         segundoCompleto = true;
     }
     void TercerPaso() {
-        Dar(Hasta);
+        Give(Hasta);
         segundoCompleto = false;
     }
 
-    public override void Dar(ManejoPallets receptor) {
-        if (Tenencia()) {
-            if (receptor.Recibir(Pallets[0])) {
-                Pallets.RemoveAt(0);
+    public override void Give(ManejoPallets receptor) {
+        if (Possession()) {
+            if (receptor.Receive(pallets[0])) {
+                pallets.RemoveAt(0);
             }
         }
     }
-    public override bool Recibir(Pallet pallet) {
-        if (!Tenencia()) {
+    public override bool Receive(Pallet pallet) {
+        if (!Possession()) {
             pallet.Portador = this.gameObject;
-            base.Recibir(pallet);
+            base.Receive(pallet);
             return true;
         }
         else

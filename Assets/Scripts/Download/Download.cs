@@ -52,7 +52,7 @@ namespace Download
 						else if (player.moneyBags[i].value == Pallet.VALUES.Value2) palletGO.value = Pallet.VALUES.Value2;
 						else if (player.moneyBags[i].value == Pallet.VALUES.Value3) palletGO.value = Pallet.VALUES.Value3;
 
-						shelve.Recibir(palletGO);
+						shelve.Receive(palletGO);
 					}
 
 					counter++;

@@ -13,23 +13,23 @@ public class EstantePartida : ManejoPallets
 		ManejoPallets recept = other.GetComponent<ManejoPallets>();
 		if(recept != null)
 		{
-			Dar(recept);
+			Give(recept);
 		}
 	}
 	
 	//------------------------------------------------------------//
 	
-	public override void Dar(ManejoPallets receptor)
+	public override void Give(ManejoPallets receptor)
 	{
-        if (receptor.Recibir(Pallets[0])) {
-            Pallets.RemoveAt(0);
+        if (receptor.Receive(pallets[0])) {
+            pallets.RemoveAt(0);
         }
     }
 	
-	public override bool Recibir (Pallet pallet)
+	public override bool Receive (Pallet pallet)
 	{
 		//pallet.CintaReceptora = CintaReceptora.gameObject;
 		pallet.Portador = gameObject;
-		return base.Recibir (pallet);
+		return base.Receive (pallet);
 	}
 }
