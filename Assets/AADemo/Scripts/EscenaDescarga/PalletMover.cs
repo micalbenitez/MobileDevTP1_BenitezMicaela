@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entities.Items;
 
-public class PalletMover : ManejoPallets {
+public class PalletMover : PalletManagement {
 
     public MoveType miInput;
     public enum MoveType {
@@ -11,7 +11,7 @@ public class PalletMover : ManejoPallets {
         Arrows
     }
 
-    public ManejoPallets Desde, Hasta;
+    public PalletManagement Desde, Hasta;
     bool segundoCompleto = false;
 
     private void Update() {
@@ -56,7 +56,7 @@ public class PalletMover : ManejoPallets {
         segundoCompleto = false;
     }
 
-    public override void Give(ManejoPallets receptor) {
+    public override void Give(PalletManagement receptor) {
         if (Possession()) {
             if (receptor.Receive(pallets[0])) {
                 pallets.RemoveAt(0);

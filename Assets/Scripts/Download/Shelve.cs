@@ -4,7 +4,7 @@ using Entities.Items;
 
 namespace Download
 {
-	public class Shelve : ManejoPallets
+	public class Shelve : PalletManagement
 	{
 		[Header("Shelve animation")]
 		public Animator shelveFloorAnimation = null;
@@ -17,11 +17,11 @@ namespace Download
 
 		private void OnTriggerEnter(Collider other)
 		{
-			ManejoPallets recept = other.GetComponent<ManejoPallets>();
+			PalletManagement recept = other.GetComponent<PalletManagement>();
 			if (recept != null) Give(recept);
 		}
 
-		public override void Give(ManejoPallets receptor)
+		public override void Give(PalletManagement receptor)
 		{
 			if (Possession())
 			{

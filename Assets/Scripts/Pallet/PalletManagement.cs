@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Entities.Items;
 
-public class ManejoPallets : MonoBehaviour
+public class PalletManagement : MonoBehaviour
 {
 	public Download.Download download = null;
 
@@ -17,7 +17,7 @@ public class ManejoPallets : MonoBehaviour
 		return true;
 	}
 	
-	public virtual void Give(ManejoPallets receptor)
+	public virtual void Give(PalletManagement receptor)
 	{
 		/// Here is where is the charge of deciding whether or not to give him the bag
 	}

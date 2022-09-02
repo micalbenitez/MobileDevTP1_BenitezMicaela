@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Entities.Items;
 
-public class ManoRecept : ManejoPallets 
+public class ManoRecept : PalletManagement 
 {
 	public bool TengoPallet = false;
 	
@@ -13,7 +13,7 @@ public class ManoRecept : ManejoPallets
 	
 	void OnTriggerEnter(Collider other)
 	{
-		ManejoPallets recept = other.GetComponent<ManejoPallets>();
+		PalletManagement recept = other.GetComponent<PalletManagement>();
 		if(recept != null)
 		{
 			Give(recept);
@@ -35,7 +35,7 @@ public class ManoRecept : ManejoPallets
 			return false;
 	}
 	
-	public override void Give(ManejoPallets receptor)
+	public override void Give(PalletManagement receptor)
 	{
 		//Debug.Log(gameObject.name+ " / Dar()");
 		switch (receptor.tag)

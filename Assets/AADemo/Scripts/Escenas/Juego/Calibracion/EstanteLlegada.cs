@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Entities.Items;
 
-public class EstanteLlegada : ManejoPallets
+public class EstanteLlegada : PalletManagement
 {
 
 	public GameObject Mano;

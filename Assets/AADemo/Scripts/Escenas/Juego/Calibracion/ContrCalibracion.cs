@@ -12,10 +12,10 @@ public class ContrCalibracion : MonoBehaviour
 	public enum Estados{Calibrando, Tutorial, Finalizado}
 	public Estados EstAct = Estados.Calibrando;
 	
-	public ManejoPallets Partida;
-	public ManejoPallets Llegada;
+	public PalletManagement Partida;
+	public PalletManagement Llegada;
 	public Pallet P;
-    public ManejoPallets palletsMover;
+    public PalletManagement palletsMover;
 	
 	GameManager GM;
 	

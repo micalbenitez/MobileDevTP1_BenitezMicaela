@@ -4,7 +4,7 @@ using Entities.Items;
 
 namespace Download
 {
-	public class Band : ManejoPallets
+	public class Band : PalletManagement
 	{
 		[Header("Band data")]
 		public float speed = 0;
@@ -46,7 +46,7 @@ namespace Download
 
 		private void OnTriggerEnter(Collider other)
 		{
-			ManejoPallets recept = other.GetComponent<ManejoPallets>();
+			PalletManagement recept = other.GetComponent<PalletManagement>();
 			if (recept != null) Give(recept);
 		}
 
