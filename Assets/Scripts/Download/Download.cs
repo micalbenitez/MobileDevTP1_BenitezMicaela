@@ -3,6 +3,7 @@ using System.Collections;
 using Entities.Player;
 using Entities.Items;
 using UnityEngine.UI;
+using UI;
 
 namespace Download
 {
@@ -22,9 +23,7 @@ namespace Download
 		public BrinksSucursal brinksSucursal = null;
 
 		[Header("UI")]
-		public GameObject ui = null;
-		public Image bonusFill = null;
-		public Text bonusText = null;
+		public UIGame uIGame = null;
 
 		private int counter = 0;
 		private Deposit deposit = null;
@@ -36,8 +35,8 @@ namespace Download
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
-			ui.SetActive(false);
-			bonusFill.gameObject.SetActive(false);
+			uIGame.SetUIState(player.idPlayer, false);
+			uIGame.SetBonusState(player.idPlayer, false);
 			if (brinksSucursal) brinksSucursal.download = this;
 		}
 
@@ -58,11 +57,10 @@ namespace Download
 				else
 				{
 					bonus = 0;
-					bonusFill.gameObject.SetActive(false);
+					uIGame.SetBonusState(player.idPlayer, false);
 				}
 
-				bonusFill.fillAmount = bonus / (int)pallet.value;
-				bonusText.text = ((int)bonus).ToString();
+				uIGame.UpdateBonus(player.idPlayer, bonus / (int)pallet.value, ((int)bonus).ToString());
 			}
 		}
 
@@ -71,7 +69,7 @@ namespace Download
 			this.deposit = deposit; /// Receive the deposit so you know when to let it go to the truck
 			scene.SetActive(true);
 			downloadCamera.SetActive(true);
-			ui.SetActive(true);
+			uIGame.SetUIState(player.idPlayer, true);
 			player.ChangePlayerState(Player.STATES.Download);
 
 			/// Assign the pallets to the racks
@@ -102,7 +100,7 @@ namespace Download
 		public void TakeOutPallet(Pallet pallet)
 		{
 			PEnMov = pallet;
-			bonusFill.gameObject.SetActive(true);
+			uIGame.SetBonusState(player.idPlayer, true);
 			TempoBonus = pallet.time;
 			player.TakeOutOneMoneyBag();
 		}
@@ -112,6 +110,8 @@ namespace Download
 		/// </summary>
 		public void ArrivePallet()
 		{
+			uIGame.SetBonusState(player.idPlayer, false);
+
 			PEnMov = null;
 			counter--;
 
@@ -136,7 +136,7 @@ namespace Download
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
-			ui.SetActive(false);
+			uIGame.SetUIState(player.idPlayer, false);
 			player.ChangePlayerState(Player.STATES.Driving);
 			deposit.Exit();
 		}
