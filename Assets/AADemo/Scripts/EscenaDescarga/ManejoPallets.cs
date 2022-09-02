@@ -5,7 +5,7 @@ using Entities.Items;
 public class ManejoPallets : MonoBehaviour 
 {
 	protected System.Collections.Generic.List<Pallet> Pallets = new System.Collections.Generic.List<Pallet>();
-	public Download Controlador;
+	public Download.Download Controlador;
 	protected int Contador = 0;
 	
 	public virtual bool Recibir(Pallet pallet)

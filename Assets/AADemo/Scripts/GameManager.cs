@@ -221,10 +221,10 @@ public class GameManager : MonoBehaviour
 		{
 			ObjsCarrera[i].SetActiveRecursively(false);
 		}
-		
-		
-		Player1.CambiarACalibracion();
-		Player2.CambiarACalibracion();
+
+
+		Player1.ChangePlayerState(Player.STATES.Calibration);
+		Player2.ChangePlayerState(Player.STATES.Calibration);
 	}
 	
 	void CambiarATutorial()
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
 			ObjsCalibracion1[i].SetActiveRecursively(false);
 		}
 		//Player1.GetComponent<PlayerDownload>().Frenar();
-		Player1.CambiarATutorial();
+		Player1.ChangePlayerState(Player.STATES.Tutorial);
 		Player1.gameObject.transform.position = PosCamion1Tuto;//posiciona el camion
 		Player1.transform.forward = Vector3.forward;
 			
@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
 		}
 		//Player2.GetComponent<PlayerDownload>().Frenar();
 		Player2.gameObject.transform.position = PosCamion2Tuto;
-		Player2.CambiarATutorial();
+		Player1.ChangePlayerState(Player.STATES.Tutorial);
 		Player2.transform.forward = Vector3 .forward;
 	}
 	
@@ -334,12 +334,12 @@ public class GameManager : MonoBehaviour
 		
 		Player1.transform.forward = Vector3 .forward;
 		//Player1.GetComponent<PlayerDownload>().Frenar();
-		Player1.CambiarAConduccion();
+		Player1.ChangePlayerState(Player.STATES.Driving);
 			
 		Player2.transform.forward = Vector3 .forward;
 		//Player2.GetComponent<PlayerDownload>().Frenar();
-		Player2.CambiarAConduccion();
-		
+		Player1.ChangePlayerState(Player.STATES.Driving);
+
 		//los deja andando
 		//Player1.GetComponent<PlayerDownload>().RestaurarVel();
 		//Player2.GetComponent<PlayerDownload>().RestaurarVel();

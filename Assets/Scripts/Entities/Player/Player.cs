@@ -73,24 +73,9 @@ namespace Entities.Player
 			currentTotalMoneyBags = 0;
 		}
 
-		public void CambiarACalibracion()
-		{
-			state = STATES.Calibration;
-		}
-
-		public void CambiarATutorial()
-		{
-			state = STATES.Tutorial;
-		}
-
-		public void CambiarAConduccion()
-		{
-			state = STATES.Driving;
-		}
-
-		public void CambiarADescarga()
-		{
-			state = STATES.Download;
-		}
+		public void ChangePlayerState(STATES state)
+        {
+			this.state = state;
+        }
 	}
 }

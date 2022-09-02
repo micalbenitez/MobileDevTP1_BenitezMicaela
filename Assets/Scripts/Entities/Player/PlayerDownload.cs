@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Download;
 
 namespace Entities.Player
 {
@@ -7,7 +8,6 @@ namespace Entities.Player
 	{
 		public bool isBraking = false;
 
-		private Vector3 destiny = Vector3.zero;
 		private Player player = null;
 
         private void Awake()
