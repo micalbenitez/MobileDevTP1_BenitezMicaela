@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Entities.Player;
 using Entities.Items;
+using UnityEngine.UI;
 
 namespace Download
 {
@@ -10,10 +11,9 @@ namespace Download
 		[Header("Player")]
 		public Player player = null;
 
-		[Header("Download scene")]
+		[Header("Download scene and camera")]
 		public GameObject scene = null;
 		public GameObject downloadCamera = null;
-		public GameObject instructive = null;
 
 		[Header("Download objects")]
 		public Pallet pallet = null;
@@ -21,19 +21,23 @@ namespace Download
 		public Band band = null;
 		public BrinksSucursal brinksSucursal = null;
 
+		[Header("UI")]
+		public GameObject ui = null;
+		public Image bonusFill = null;
+		public Text bonusText = null;
+
 		private int counter = 0;
 		private Deposit deposit = null;
-
-
-		float TempoBonus;
-		public float bonus = 0;
-		public Pallet PEnMov = null;
+		private float TempoBonus;
+		private float bonus = 0;
+		private Pallet PEnMov = null;
 
 		private void Start()
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
-			instructive.SetActive(false);
+			ui.SetActive(false);
+			bonusFill.gameObject.SetActive(false);
 			if (brinksSucursal) brinksSucursal.download = this;
 		}
 
@@ -54,7 +58,11 @@ namespace Download
 				else
 				{
 					bonus = 0;
+					bonusFill.gameObject.SetActive(false);
 				}
+
+				bonusFill.fillAmount = bonus / (int)pallet.value;
+				bonusText.text = ((int)bonus).ToString();
 			}
 		}
 
@@ -63,7 +71,7 @@ namespace Download
 			this.deposit = deposit; /// Receive the deposit so you know when to let it go to the truck
 			scene.SetActive(true);
 			downloadCamera.SetActive(true);
-			instructive.SetActive(false);
+			ui.SetActive(true);
 			player.ChangePlayerState(Player.STATES.Download);
 
 			/// Assign the pallets to the racks
@@ -94,6 +102,7 @@ namespace Download
 		public void TakeOutPallet(Pallet pallet)
 		{
 			PEnMov = pallet;
+			bonusFill.gameObject.SetActive(true);
 			TempoBonus = pallet.time;
 			player.TakeOutOneMoneyBag();
 		}
@@ -127,7 +136,7 @@ namespace Download
 		{
 			scene.SetActive(false);
 			downloadCamera.SetActive(false);
-			instructive.SetActive(false);
+			ui.SetActive(false);
 			player.ChangePlayerState(Player.STATES.Driving);
 			deposit.Exit();
 		}
