@@ -67,8 +67,10 @@ namespace Managers
             if (players[0].money > players[1].money)
             {
                 //lado que gano
-                if (playersData[0].LadoAct == PlayerData.Visualizacion.Der) DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
-                else DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
+                if (playersData[0].LadoAct == PlayerData.Visualizacion.Der) 
+                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
+                else 
+                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
 
                 //puntajes
                 DatosPartida.PtsGanador = players[0].money;
@@ -77,8 +79,10 @@ namespace Managers
             else
             {
                 //lado que gano
-                if (playersData[1].LadoAct == PlayerData.Visualizacion.Der) DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
-                else DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
+                if (playersData[1].LadoAct == PlayerData.Visualizacion.Der) 
+                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
+                else 
+                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
 
                 //puntajes
                 DatosPartida.PtsGanador = players[1].money;
@@ -109,26 +113,5 @@ namespace Managers
             SetGameObjectsState(true);
             gameTimer.SetTimer(gameDuration, Timer.TIMER_MODE.DECREASE, true);
         }
-    }
-
-    [System.Serializable]
-    public class PlayerData
-    {
-        public PlayerData(int tipoDeInput, Player pj)
-        {
-            TipoDeInput = tipoDeInput;
-            PJ = pj;
-        }
-
-        public bool FinCalibrado = false;
-        public bool FinTuto1 = false;
-        public bool FinTuto2 = false;
-
-        public enum Visualizacion { Der, Izq }
-        public Visualizacion LadoAct = Visualizacion.Der;
-
-        public int TipoDeInput = -1;
-
-        public Player PJ;
     }
 }

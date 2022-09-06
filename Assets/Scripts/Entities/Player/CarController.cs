@@ -45,8 +45,8 @@ namespace Entities.Player
             {
                 if (data.isBack)
                 {
-                    data.rightWheel.motorTorque = speed * 500 * Time.deltaTime;
-                    data.leftWheel.motorTorque = speed * 500 * Time.deltaTime;
+                    data.rightWheel.motorTorque = speed;
+                    data.leftWheel.motorTorque = speed;
                 }
                 if (data.isFront)
                 {

@@ -642,19 +642,7 @@ MonoBehaviour:
   carControllers:
   - {fileID: 214258211}
   - {fileID: 732440494}
-  playersData:
-  - FinCalibrado: 0
-    FinTuto1: 0
-    FinTuto2: 0
-    LadoAct: 0
-    TipoDeInput: 0
-    PJ: {fileID: 1865964697}
-  - FinCalibrado: 0
-    FinTuto1: 0
-    FinTuto2: 0
-    LadoAct: 1
-    TipoDeInput: 0
-    PJ: {fileID: 30450559}
+  playersData: []
   gameCameras:
   - {fileID: 1822638289}
   - {fileID: 2074128705}
@@ -7961,6 +7949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: idPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293830286516716337, guid: a047a6230737b844483cfb66ae63bdaa,
+        type: 3}
+      propertyPath: LadoAct
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6815758955595854199, guid: a047a6230737b844483cfb66ae63bdaa,
         type: 3}
