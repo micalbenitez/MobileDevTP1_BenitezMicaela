@@ -40,6 +40,15 @@ namespace Managers
         private void Update()
         {
             UpdateGameTimer();
+
+            /// Quit game
+            if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
+        }
+
+        public void StartGame()
+        {
+            SetGameObjectsState(true);
+            gameTimer.SetTimer(gameDuration, Timer.TIMER_MODE.DECREASE, true);
         }
 
         private void SetGameObjectsState(bool state)
@@ -96,6 +105,11 @@ namespace Managers
                 downloads[i].EndGame();
         }
 
+        private void QuitGame()
+        {
+            Application.Quit();
+        }
+
         private void OnEnable()
         {
             for (int i = 0; i < players.Length; i++)
@@ -106,12 +120,6 @@ namespace Managers
         {
             for (int i = 0; i < players.Length; i++)
                 players[i].OnUpdateScore -= uiGame.UpdateScore;
-        }
-
-        public void StartGame()
-        {
-            SetGameObjectsState(true);
-            gameTimer.SetTimer(gameDuration, Timer.TIMER_MODE.DECREASE, true);
         }
     }
 }
