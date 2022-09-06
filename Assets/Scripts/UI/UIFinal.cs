@@ -36,19 +36,19 @@ namespace UI
 
         private void SetWinner()
 		{
-			switch (DatosPartida.LadoGanadaor)
+			switch (Stats.playerWinner)
 			{
-				case DatosPartida.Lados.Der:
+				case Stats.side.RIGHT:
 					winnerImage.sprite = player1Winner;
-					player1ScoreText.text = DatosPartida.PtsGanador.ToString();
-					player2ScoreText.text = DatosPartida.PtsPerdedor.ToString();
+					player1ScoreText.text = Stats.winnerScore.ToString();
+					player2ScoreText.text = Stats.loserScore.ToString();
 					player1Animator.Play("Winner");
 					break;
 
-				case DatosPartida.Lados.Izq:
+				case Stats.side.LEFT:
 					winnerImage.sprite = player2Winner;
-					player2ScoreText.text = DatosPartida.PtsGanador.ToString();
-					player1ScoreText.text = DatosPartida.PtsPerdedor.ToString();
+					player2ScoreText.text = Stats.winnerScore.ToString();
+					player1ScoreText.text = Stats.loserScore.ToString();
 					player2Animator.Play("Winner");
 					break;
 			}

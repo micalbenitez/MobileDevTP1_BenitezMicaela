@@ -9,8 +9,13 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public enum EstadoJuego { Calibrando, Jugando, Finalizado }
-        public EstadoJuego EstAct = EstadoJuego.Calibrando;
+        public enum GAME_STATE 
+        { 
+            TUTORIAL, 
+            GAME, 
+            ENDGAME
+        }
+        public GAME_STATE gameState = GAME_STATE.TUTORIAL;
 
         [Header("Game data")]
         public float gameDuration = 0;
@@ -71,31 +76,31 @@ namespace Managers
         private void EndGame()
         {
             LoaderManager.Instance.LoadScene(finalScene);
-            EstAct = EstadoJuego.Finalizado;
+            gameState = GAME_STATE.ENDGAME;
 
             if (players[0].money > players[1].money)
             {
                 //lado que gano
-                if (playersData[0].LadoAct == PlayerData.Visualizacion.Der) 
-                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
+                if (playersData[0].playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
+                    Stats.playerWinner = Stats.side.RIGHT;
                 else 
-                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
+                    Stats.playerWinner = Stats.side.LEFT;
 
                 //puntajes
-                DatosPartida.PtsGanador = players[0].money;
-                DatosPartida.PtsPerdedor = players[1].money;
+                Stats.winnerScore = players[0].money;
+                Stats.loserScore = players[1].money;
             }
             else
             {
                 //lado que gano
-                if (playersData[1].LadoAct == PlayerData.Visualizacion.Der) 
-                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Der;
+                if (playersData[1].playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
+                    Stats.playerWinner = Stats.side.RIGHT;
                 else 
-                    DatosPartida.LadoGanadaor = DatosPartida.Lados.Izq;
+                    Stats.playerWinner = Stats.side.LEFT;
 
                 //puntajes
-                DatosPartida.PtsGanador = players[1].money;
-                DatosPartida.PtsPerdedor = players[0].money;
+                Stats.winnerScore = players[1].money;
+                Stats.loserScore = players[0].money;
             }
 
             players[0].GetComponent<CarController>().Stop();

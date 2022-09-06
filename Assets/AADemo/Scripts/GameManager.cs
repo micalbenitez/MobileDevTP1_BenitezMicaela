@@ -281,14 +281,14 @@ public class GameManager : MonoBehaviour
 		if(Player1.money > Player2.money)
 		{			
 			//puntajes
-			DatosPartida.PtsGanador = Player1.money;
-			DatosPartida.PtsPerdedor = Player2.money;
+			Stats.winnerScore = Player1.money;
+			Stats.loserScore = Player2.money;
 		}
 		else
 		{			
 			//puntajes
-			DatosPartida.PtsGanador = Player2.money;
-			DatosPartida.PtsPerdedor = Player1.money;
+			Stats.winnerScore = Player2.money;
+			Stats.loserScore = Player1.money;
 		}
 		
 		//Player1.GetComponent<PlayerDownload>().Frenar();

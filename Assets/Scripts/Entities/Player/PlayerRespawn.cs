@@ -50,7 +50,7 @@ namespace Entities.Player
             rigidBody.Sleep();
             Physics.IgnoreLayerCollision(8, 9, true);
 
-            if (GetComponent<PlayerData>().LadoAct == PlayerData.Visualizacion.Der)
+            if (GetComponent<PlayerData>().playerSide == PlayerData.PLAYER_SIDE.RIGHT)
                 transform.position = checkpoint.position + checkpoint.right * Random.Range(rangeMinRight, rangeMaxRight);
             else
                 transform.position = checkpoint.position + checkpoint.right * Random.Range(rangeMinRight * (-1), rangeMaxRight * (-1));

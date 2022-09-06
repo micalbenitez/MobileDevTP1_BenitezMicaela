@@ -122,15 +122,15 @@ public class MngPts : MonoBehaviour
 	
 	void SetGanador()
 	{
-		switch(DatosPartida.LadoGanadaor)
+		switch(Stats.playerWinner)
 		{
-		case DatosPartida.Lados.Der:
+		case Stats.side.RIGHT:
 			
 			GS_Ganador.box.normal.background = Ganadores[1];
 			
 			break;
 			
-		case DatosPartida.Lados.Izq:
+		case Stats.side.LEFT:
 			
 			GS_Ganador.box.normal.background = Ganadores[0];
 			

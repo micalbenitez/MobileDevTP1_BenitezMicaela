@@ -6,26 +6,29 @@ namespace Entities.Player
 {
     public class PlayerData : MonoBehaviour
     {
-        public PlayerData(int tipoDeInput, Player pj)
+        public PlayerData(int tipoDeInput, Player player)
         {
-            TipoDeInput = tipoDeInput;
-            PJ = pj;
+            input = tipoDeInput;
+            this.player = player;
         }
+
+        public enum PLAYER_SIDE
+        {
+            RIGHT,
+            LEFT
+        }
+        public PLAYER_SIDE playerSide = PLAYER_SIDE.RIGHT;
 
         public bool FinCalibrado = false;
         public bool FinTuto1 = false;
         public bool FinTuto2 = false;
 
-        public enum Visualizacion { Der, Izq }
-        public Visualizacion LadoAct = Visualizacion.Der;
-
-        public int TipoDeInput = -1;
-
-        private Player PJ;
+        public int input = -1;
+        private Player player;
 
         private void Awake()
         {
-            PJ = GetComponent<Player>();
+            player = GetComponent<Player>();
         }
     }
 }
