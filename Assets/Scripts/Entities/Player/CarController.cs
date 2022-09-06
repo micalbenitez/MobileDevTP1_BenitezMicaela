@@ -17,14 +17,21 @@ namespace Entities.Player
 
         [Header("Wheels data")]
         public List<AxleData> axleData = new List<AxleData>();
+                
+        private float inputX = 0; /// Horizontal input
+        private Rigidbody rigidBody = null;
 
-        /// Horizontal input
-        private float inputX = 0;
+        private void Awake()
+        {
+            rigidBody = GetComponent<Rigidbody>();
+        }
 
         private void FixedUpdate()
         {
             GetInput();
             Move();
+
+            if (Input.GetKeyDown(KeyCode.M)) Stop();
         }
 
         private void GetInput()
@@ -61,6 +68,13 @@ namespace Entities.Player
 
             wheelCollider.GetWorldPose(out position, out rotation);
             wheelTransform.transform.rotation = rotation;
+        }
+
+        public void Stop()
+        {
+            rigidBody.useGravity = false;
+            rigidBody.Sleep();
+            Physics.IgnoreLayerCollision(8, 9, true);
         }
     }
 }
