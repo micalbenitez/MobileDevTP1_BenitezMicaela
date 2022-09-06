@@ -631,7 +631,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   EstAct: 0
   gameDuration: 60
-  finalScene: PtsFinal
+  finalScene: Final
   downloads:
   - {fileID: 1763595128}
   - {fileID: 1492889363}
