@@ -628,7 +628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc954af5cc63f844481fbc0834e9bfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
   EstAct: 0
   gameDuration: 60
   finalScene: Final

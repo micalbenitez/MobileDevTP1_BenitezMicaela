@@ -30,8 +30,6 @@ namespace Entities.Player
         {
             GetInput();
             Move();
-
-            if (Input.GetKeyDown(KeyCode.M)) Stop();
         }
 
         private void GetInput()
@@ -45,8 +43,8 @@ namespace Entities.Player
             {
                 if (data.isBack)
                 {
-                    data.rightWheel.motorTorque = speed;
-                    data.leftWheel.motorTorque = speed;
+                    data.rightWheel.motorTorque = speed;// * 500 * Time.deltaTime;
+                    data.leftWheel.motorTorque = speed;// * 500 * Time.deltaTime;
                 }
                 if (data.isFront)
                 {

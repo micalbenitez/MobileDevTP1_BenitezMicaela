@@ -7,7 +7,7 @@ using UI;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviourSingleton<GameManager>
+    public class GameManager : MonoBehaviour
     {
         public enum EstadoJuego { Calibrando, Jugando, Finalizado }
         public EstadoJuego EstAct = EstadoJuego.Calibrando;
@@ -32,7 +32,7 @@ namespace Managers
 
         private Timer gameTimer = new Timer();
 
-        protected override void OnAwaken()
+        private void Awake()
         {
             SetGameObjectsState(false);
         }

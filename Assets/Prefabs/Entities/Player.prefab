@@ -7203,7 +7203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   horizontalInput: Horizontal0
-  turnSensitive: 10
+  turnSensitive: 1
   maxAngle: 45
   axleData:
   - rightWheel: {fileID: 6815758956831914339}
@@ -7264,9 +7264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea43c58fa021b9498095cd820087258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameCheck: 0
-  rangeMinRight: 0
-  rangeMaxRight: 0
+  frameCheck: 20
+  rangeMinRight: 4
+  rangeMaxRight: 10
 --- !u!114 &3723909858358540744
 MonoBehaviour:
   m_ObjectHideFlags: 0
