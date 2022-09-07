@@ -54,19 +54,19 @@ namespace Tutorial
             switch (steps)
             {
                 case STEPS.PRETUTORIAL:
-                    ActiveTutorial(playerInput.up);
+                    ActiveTutorial(playerInput.Up());
                     break;
 
                 case STEPS.STEP1:
-                    NextTutorialStep(playerInput.left);
+                    NextTutorialStep(playerInput.Left());
                     break;
 
                 case STEPS.STEP2:
-                    NextTutorialStep(playerInput.up);
+                    NextTutorialStep(playerInput.Up());
                     break;
 
                 case STEPS.STEP3:
-                    NextTutorialStep(playerInput.right);
+                    NextTutorialStep(playerInput.Right());
                     break;
 
                 case STEPS.STEP4:
@@ -80,9 +80,9 @@ namespace Tutorial
         /// <summary>
         /// Active tutorial
         /// </summary>
-        private void ActiveTutorial(KeyCode key)
+        private void ActiveTutorial(bool state)
         {
-            if (Input.GetKeyDown(key))
+            if (state)
             {
                 tutorialScreen.ActiveTutorial();
                 steps++;
@@ -92,9 +92,9 @@ namespace Tutorial
         /// <summary>
         /// Next tutorial step
         /// </summary>
-        private void NextTutorialStep(KeyCode key)
+        private void NextTutorialStep(bool state)
         {
-            if (Input.GetKeyDown(key))
+            if (state)
             {
                 tutorialScreen.NextTutorialImage();
                 tutorialBag.NextPosition();

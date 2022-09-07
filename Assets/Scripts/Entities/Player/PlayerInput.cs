@@ -19,11 +19,6 @@ namespace Entities.Player
         private int playerID = -1;
         private string inputName = "Horizontal";
 
-        /// Player keys
-        [NonSerialized] public KeyCode right = KeyCode.None;
-        [NonSerialized] public KeyCode left = KeyCode.None;
-        [NonSerialized] public KeyCode up = KeyCode.None;
-
         /// <summary>
         /// Set player keys
         /// </summary>
@@ -31,29 +26,31 @@ namespace Entities.Player
         {
             playerID = GetComponent<Player>().idPlayer;
             inputName += playerID;
-
-            switch (input)
-            {
-                case INPUT.WASD:
-                    right = KeyCode.D;
-                    left = KeyCode.A;
-                    up = KeyCode.W;
-                    break;
-
-                case INPUT.ARROWS:
-                    right = KeyCode.RightArrow;
-                    left = KeyCode.LeftArrow;
-                    up = KeyCode.UpArrow;
-                    break;
-
-                default:
-                    break;
-            }
         }
 
         public string GetHorizontalInput()
         {
             return inputName;
+        }
+
+        public bool Up()
+        {
+            return InputManager.Instance.GetAxis("Vertical" + playerID) > 0.5f;
+        }
+
+        public bool Down()
+        {
+            return InputManager.Instance.GetAxis("Vertical" + playerID) < -0.5f;
+        }
+
+        public bool Left()
+        {
+            return InputManager.Instance.GetAxis("Horizontal" + playerID) < -0.5f;
+        }
+
+        public bool Right()
+        {
+            return InputManager.Instance.GetAxis("Horizontal" + playerID) > 0.5f;
         }
     }
 }
