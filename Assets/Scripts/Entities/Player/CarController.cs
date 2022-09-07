@@ -9,7 +9,6 @@ namespace Entities.Player
     {
         [Header("Car data")]
         public float speed = 20f;
-        public string horizontalInput = "";
 
         [Header("Turn data")]
         public float turnSensitive = 1f;
@@ -34,7 +33,8 @@ namespace Entities.Player
 
         private void GetInput()
         {
-            inputX = Input.GetAxis(horizontalInput);
+            string horizontal = GetComponent<PlayerInput>().GetHorizontalInput();
+            inputX = Input.GetAxis(horizontal);
         }
 
         private void Move()

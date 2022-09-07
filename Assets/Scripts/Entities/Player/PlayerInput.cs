@@ -4,16 +4,20 @@ using UnityEngine;
 
 namespace Entities.Player
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerInput : MonoBehaviour
     {
-        public enum MOVE_TYPE
+        public enum INPUT
         { 
             WASD,
-            ARROWS
+            ARROWS,
+            MOUSE
         }
 
         [Header("Movement data")]
-        public MOVE_TYPE moveType = MOVE_TYPE.WASD;
+        public INPUT input = INPUT.WASD;
+
+        private int playerID = -1;
+        private string inputName = "Horizontal";
 
         /// Player keys
         [NonSerialized] public KeyCode right = KeyCode.None;
@@ -25,15 +29,18 @@ namespace Entities.Player
         /// </summary>
         private void Start()
         {
-            switch (moveType)
+            playerID = GetComponent<Player>().idPlayer;
+            inputName += playerID;
+
+            switch (input)
             {
-                case MOVE_TYPE.WASD:
+                case INPUT.WASD:
                     right = KeyCode.D;
                     left = KeyCode.A;
                     up = KeyCode.W;
                     break;
 
-                case MOVE_TYPE.ARROWS:
+                case INPUT.ARROWS:
                     right = KeyCode.RightArrow;
                     left = KeyCode.LeftArrow;
                     up = KeyCode.UpArrow;
@@ -42,6 +49,11 @@ namespace Entities.Player
                 default:
                     break;
             }
+        }
+
+        public string GetHorizontalInput()
+        {
+            return inputName;
         }
     }
 }

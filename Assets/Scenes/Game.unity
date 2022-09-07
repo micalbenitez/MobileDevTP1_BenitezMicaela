@@ -8070,6 +8070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1291434706789553370, guid: 06e1f7ce48f306b43b6f5617499b6768,
         type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 30331355}
+    - target: {fileID: 1291434706789553370, guid: 06e1f7ce48f306b43b6f5617499b6768,
+        type: 3}
       propertyPath: otherTutorial
       value: 
       objectReference: {fileID: 73104463}
@@ -8275,6 +8280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialPlayer1
       objectReference: {fileID: 0}
+    - target: {fileID: 1291434706789553370, guid: 06e1f7ce48f306b43b6f5617499b6768,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 7828726415267586624}
     - target: {fileID: 1291434706789553370, guid: 06e1f7ce48f306b43b6f5617499b6768,
         type: 3}
       propertyPath: otherTutorial

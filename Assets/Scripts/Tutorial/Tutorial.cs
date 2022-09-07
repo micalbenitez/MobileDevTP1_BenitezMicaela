@@ -21,7 +21,7 @@ namespace Tutorial
         [Header("Tutorial screen")]
         public TutorialScreen tutorialScreen = null;
         [Header("Player data")]
-        public PlayerMovement playerMovement = null;
+        public PlayerInput playerInput = null;
         [Header("Bag")]
         public TutorialBag tutorialBag = null;
         [Header("Finish tutorial")]
@@ -54,19 +54,19 @@ namespace Tutorial
             switch (steps)
             {
                 case STEPS.PRETUTORIAL:
-                    ActiveTutorial(playerMovement.up);
+                    ActiveTutorial(playerInput.up);
                     break;
 
                 case STEPS.STEP1:
-                    NextTutorialStep(playerMovement.left);
+                    NextTutorialStep(playerInput.left);
                     break;
 
                 case STEPS.STEP2:
-                    NextTutorialStep(playerMovement.up);
+                    NextTutorialStep(playerInput.up);
                     break;
 
                 case STEPS.STEP3:
-                    NextTutorialStep(playerMovement.right);
+                    NextTutorialStep(playerInput.right);
                     break;
 
                 case STEPS.STEP4:
