@@ -3829,7 +3829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1280, y: 200}
+  m_AnchoredPosition: {x: 1230, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993594542
@@ -3996,7 +3996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 150, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037616621
@@ -5431,7 +5431,7 @@ PrefabInstance:
     - target: {fileID: 6293830286516716337, guid: a047a6230737b844483cfb66ae63bdaa,
         type: 3}
       propertyPath: playerSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6815758955595854199, guid: a047a6230737b844483cfb66ae63bdaa,
         type: 3}
@@ -9950,6 +9950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293830286516716337, guid: a047a6230737b844483cfb66ae63bdaa,
+        type: 3}
+      propertyPath: playerSide
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a047a6230737b844483cfb66ae63bdaa, type: 3}
