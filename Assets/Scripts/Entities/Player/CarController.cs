@@ -34,7 +34,7 @@ namespace Entities.Player
         private void GetInput()
         {
             string horizontal = GetComponent<PlayerInput>().GetHorizontalInput();
-            inputX = Input.GetAxis(horizontal);
+            inputX = InputManager.Instance.GetAxis(horizontal);
         }
 
         private void Move()

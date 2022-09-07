@@ -26,6 +26,7 @@ namespace Managers
 
         [Header("Game UI")]
         public UIGame uiGame = null;
+        public GameObject[] playersUI = null;
 
         [Header("Players")]
         public Player[] players = null;
@@ -64,7 +65,9 @@ namespace Managers
             for (int i = 0; i < carControllers.Length; i++)
                 carControllers[i].enabled = state;
 
-            uiGame.gameObject.SetActive(state);
+
+            for (int i = 0; i < playersUI.Length; i++)
+                playersUI[i].gameObject.SetActive(state);
         }
 
         private void UpdateGameTimer()

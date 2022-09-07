@@ -45,6 +45,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     void SetHorizontal(float val) {
         InputManager.Instance.SetAxis("Horizontal" + player, val);
     }
+
     void SetVertical(float val) {
         InputManager.Instance.SetAxis("Vertical" + player, val);
     }

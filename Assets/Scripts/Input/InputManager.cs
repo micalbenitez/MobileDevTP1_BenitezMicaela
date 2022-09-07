@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Linq;
-
 public class InputManager {
 
     static InputManager instance = null;
@@ -18,12 +16,12 @@ public class InputManager {
 
     Dictionary<string, float> axisValues = new Dictionary<string, float>();
 
-
     public void SetAxis(string axis, float value) {
         if (!axisValues.ContainsKey(axis))
             axisValues.Add(axis, value);
         axisValues[axis] = value;
     }
+
     float GetOrAddAxis(string axis) {
         if (!axisValues.ContainsKey(axis))
             axisValues.Add(axis, 0f);
