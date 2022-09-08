@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Entities.Player;
 using Toolbox;
+using Managers;
 
 namespace Tutorial
 {
@@ -70,7 +71,10 @@ namespace Tutorial
                     break;
 
                 case STEPS.STEP4:
-                    if (!timer.Active && otherTutorial.steps == STEPS.STEP4) timer.ActiveTimer();
+                    if (GameConfiguration.Instance.GetPlayers() == 1)
+                        if (!timer.Active) timer.ActiveTimer();
+                    else 
+                        if (!timer.Active && otherTutorial.steps == STEPS.STEP4) timer.ActiveTimer();
                     break;
                 default:
                     break;

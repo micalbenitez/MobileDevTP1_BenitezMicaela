@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Entities.Player;
@@ -9,6 +9,22 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
+        [Serializable]
+        public class PlayerComponent
+        {
+            public string tag;
+            public Player player;
+            public CarController carController;
+            public PlayerData playerData;
+            public Camera gameCamera;
+            public GameObject playerUI;
+            public GameObject virtualJoystick;
+            public Tutorial.Tutorial tutorial;
+            public Camera tutorialCamera;
+            public Download.Download download;
+            public Camera downloadCamera;
+        }
+
         public enum GAME_STATE 
         { 
             TUTORIAL, 
@@ -21,20 +37,11 @@ namespace Managers
         public float gameDuration = 0;
         public string finalScene = "";
 
-        [Header("Download data")]
-        public Download.Download[] downloads = null;
+        [Header("Player data")]
+        public PlayerComponent[] players = null;
 
         [Header("Game UI")]
         public UIGame uiGame = null;
-        public GameObject[] playersUI = null;
-
-        [Header("Players")]
-        public Player[] players = null;
-        public CarController[] carControllers = null;
-        public PlayerData[] playersData = null;
-
-        [Header("Game cameras")]
-        public Camera[] gameCameras = null;
 
         private Timer gameTimer = new Timer();
 
@@ -46,6 +53,7 @@ namespace Managers
         private void Update()
         {
             UpdateGameTimer();
+            ConfiguratedPlayersQuantity();
 
             /// Quit game
             if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
@@ -59,15 +67,38 @@ namespace Managers
 
         private void SetGameObjectsState(bool state)
         {
-            for (int i = 0; i < gameCameras.Length; i++)
-                gameCameras[i].gameObject.SetActive(state);
+            if (GameConfiguration.Instance.GetPlayers() == 1)
+            {
+                players[0].gameCamera.gameObject.SetActive(state);
+                players[0].carController.enabled = state;
+                players[0].playerUI.SetActive(state);
+            }
+            else
+            {
+                for (int i = 0; i < players.Length; i++)
+                {
+                    players[i].gameCamera.gameObject.SetActive(state);
+                    players[i].carController.enabled = state;
+                    players[i].playerUI.SetActive(state);
+                }
+            }
+        }
 
-            for (int i = 0; i < carControllers.Length; i++)
-                carControllers[i].enabled = state;
+        private void ConfiguratedPlayersQuantity()
+        {
+            if (GameConfiguration.Instance.GetPlayers() == 1)
+            {
+                players[1].player.gameObject.SetActive(false);
+                players[1].gameCamera.gameObject.SetActive(false);
+                players[1].playerUI.SetActive(false);
+                players[1].virtualJoystick.SetActive(false);
+                players[1].tutorial.gameObject.SetActive(false);
+                players[1].download.gameObject.SetActive(false);
 
-
-            for (int i = 0; i < playersUI.Length; i++)
-                playersUI[i].gameObject.SetActive(state);
+                players[0].gameCamera.rect = new Rect(0, 0, 1, 1);
+                players[0].tutorialCamera.rect = new Rect(0, 0, 1, 1);
+                players[0].downloadCamera.rect = new Rect(0, 0, 1, 1);
+            }
         }
 
         private void UpdateGameTimer()
@@ -81,36 +112,36 @@ namespace Managers
             LoaderManager.Instance.LoadScene(finalScene);
             gameState = GAME_STATE.ENDGAME;
 
-            if (players[0].money > players[1].money)
+            if (players[0].player.money > players[1].player.money)
             {
-                //lado que gano
-                if (playersData[0].playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
+                /// Winner
+                if (players[0].playerData.playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
                     Stats.playerWinner = Stats.side.RIGHT;
                 else 
                     Stats.playerWinner = Stats.side.LEFT;
 
-                //puntajes
-                Stats.winnerScore = players[0].money;
-                Stats.loserScore = players[1].money;
+                /// Score
+                Stats.winnerScore = players[0].player.money;
+                Stats.loserScore = players[1].player.money;
             }
             else
             {
-                //lado que gano
-                if (playersData[1].playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
+                /// Winner
+                if (players[1].playerData.playerSide == PlayerData.PLAYER_SIDE.RIGHT) 
                     Stats.playerWinner = Stats.side.RIGHT;
                 else 
                     Stats.playerWinner = Stats.side.LEFT;
 
-                //puntajes
-                Stats.winnerScore = players[1].money;
-                Stats.loserScore = players[0].money;
+                /// Score
+                Stats.winnerScore = players[1].player.money;
+                Stats.loserScore = players[0].player.money;
             }
 
-            players[0].GetComponent<CarController>().Stop();
-            players[1].GetComponent<CarController>().Stop();
+            players[0].player.GetComponent<CarController>().Stop();
+            players[1].player.GetComponent<CarController>().Stop();
 
-            for (int i = 0; i < downloads.Length; i++)
-                downloads[i].EndGame();
+            for (int i = 0; i < players.Length; i++)
+                players[i].download.EndGame();
         }
 
         private void QuitGame()
@@ -121,13 +152,13 @@ namespace Managers
         private void OnEnable()
         {
             for (int i = 0; i < players.Length; i++)
-                players[i].OnUpdateScore += uiGame.UpdateScore;
+                players[i].player.OnUpdateScore += uiGame.UpdateScore;
         }
 
         private void OnDisable()
         {
             for (int i = 0; i < players.Length; i++)
-                players[i].OnUpdateScore -= uiGame.UpdateScore;
+                players[i].player.OnUpdateScore -= uiGame.UpdateScore;
         }
     }
 }

@@ -469,25 +469,30 @@ MonoBehaviour:
   gameState: 0
   gameDuration: 60
   finalScene: Final
-  downloads:
-  - {fileID: 1763595128}
-  - {fileID: 1492889363}
-  uiGame: {fileID: 1239203016}
-  playersUI:
-  - {fileID: 558542775}
-  - {fileID: 1867734440}
   players:
-  - {fileID: 1865964697}
-  - {fileID: 30450559}
-  carControllers:
-  - {fileID: 214258211}
-  - {fileID: 732440494}
-  playersData:
-  - {fileID: 137976239}
-  - {fileID: 2030156949}
-  gameCameras:
-  - {fileID: 1822638289}
-  - {fileID: 2074128705}
+  - tag: Player 1
+    player: {fileID: 1865964697}
+    carController: {fileID: 214258211}
+    playerData: {fileID: 137976239}
+    gameCamera: {fileID: 1822638289}
+    playerUI: {fileID: 558542775}
+    virtualJoystick: {fileID: 1037616619}
+    tutorial: {fileID: 73104463}
+    tutorialCamera: {fileID: 92749118}
+    download: {fileID: 1763595128}
+    downloadCamera: {fileID: 1973466932}
+  - tag: Player 2
+    player: {fileID: 30450559}
+    carController: {fileID: 732440494}
+    playerData: {fileID: 2030156949}
+    gameCamera: {fileID: 2074128705}
+    playerUI: {fileID: 1867734440}
+    virtualJoystick: {fileID: 993594540}
+    tutorial: {fileID: 610845714}
+    tutorialCamera: {fileID: 980710877}
+    download: {fileID: 1492889363}
+    downloadCamera: {fileID: 1189189208}
+  uiGame: {fileID: 1239203016}
 --- !u!4 &51186468
 Transform:
   m_ObjectHideFlags: 0
@@ -576,6 +581,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 514ac53862939534083df9fb1d9b6d0d,
     type: 3}
   m_PrefabInstance: {fileID: 2071155672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &92749118 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1291434707250590047, guid: 06e1f7ce48f306b43b6f5617499b6768,
+    type: 3}
+  m_PrefabInstance: {fileID: 1291434706718828693}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &107775199
 PrefabInstance:
@@ -3749,6 +3760,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6330766003537878934}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &980710877 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1291434707250590047, guid: 06e1f7ce48f306b43b6f5617499b6768,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076755895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &988391515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4764,6 +4781,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5186780794168776511, guid: e6f91c5ecedbe5645b1b9533aa8557dc,
     type: 3}
   m_PrefabInstance: {fileID: 1154207436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1189189208 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4732317769816349850, guid: 21018f6ce88d6274ea992983793c0680,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492889355}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1196673569 stripped
 Transform:
@@ -8104,6 +8127,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 514ac53862939534083df9fb1d9b6d0d,
     type: 3}
   m_PrefabInstance: {fileID: 795033284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1973466932 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4732317769816349850, guid: 21018f6ce88d6274ea992983793c0680,
+    type: 3}
+  m_PrefabInstance: {fileID: 4732317768561846712}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1976694593
 PrefabInstance:
