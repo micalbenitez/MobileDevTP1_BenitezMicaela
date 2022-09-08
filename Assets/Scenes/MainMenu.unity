@@ -1639,6 +1639,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
+  playersButtons:
+  - {fileID: 1649795744}
+  - {fileID: 124317312}
+  difficultButtons:
+  - {fileID: 836679330}
+  - {fileID: 1146545394}
+  - {fileID: 1876439362}
+  unpressButton: {r: 0, g: 0, b: 0, a: 0.4117647}
+  pressButton: {r: 0.078431375, g: 0.63529414, b: 0.0627451, a: 0.4117647}
   playersQuantity: 0
   difficult: 0
 --- !u!4 &1162604879
