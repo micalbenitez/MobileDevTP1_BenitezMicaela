@@ -6,6 +6,19 @@ using Toolbox;
 
 public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
 {
+    public enum GAME_MODE
+    {
+        SINGLEPLAYER,
+        MULTIPLAYER
+    }
+
+    public enum GAME_DIFFICULT
+    {
+        EASY,
+        MEDIUM,
+        DIFFICULT
+    }
+
     [Header("Players")]
     [SerializeField] private Button[] playersButtons = null;
 
@@ -17,15 +30,15 @@ public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
     [SerializeField] private Color pressButton = Color.white;
 
     [Header("Configuration")]
-    [SerializeField] private int playersQuantity;
-    [SerializeField] private int difficult;
+    [SerializeField] GAME_MODE playersQuantity;
+    [SerializeField] GAME_DIFFICULT difficult;
 
     private void Start()
     {
-        playersQuantity = 1;
-        difficult = 1;
-        ChangeButtonColor(playersButtons, playersQuantity - 1);
-        ChangeButtonColor(difficultButtons, difficult - 1);
+        playersQuantity = GAME_MODE.SINGLEPLAYER;
+        difficult = GAME_DIFFICULT.EASY;
+        ChangeButtonColor(playersButtons, (int)playersQuantity);
+        ChangeButtonColor(difficultButtons, (int)difficult);
     }
 
     private void ChangeButtonColor(Button[] buttons, int index)
@@ -37,18 +50,18 @@ public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
         }
     }
 
-    public void SetPlayers(int value)
+    public void SetPlayers(int gameMode)
     {
-        playersQuantity = value;
-        ChangeButtonColor(playersButtons, playersQuantity - 1);
+        playersQuantity = (GAME_MODE)gameMode;
+        ChangeButtonColor(playersButtons, (int)playersQuantity);
     }
 
-    public void SetDifficult(int value)
+    public void SetDifficult(int gameDifficult)
     {
-        difficult = value;
-        ChangeButtonColor(difficultButtons, difficult - 1);
+        difficult = (GAME_DIFFICULT)gameDifficult;
+        ChangeButtonColor(difficultButtons, (int)difficult);
     }
 
-    public int Difficult() => difficult;
-    public int GetPlayers() => playersQuantity;
+    public GAME_MODE GetPlayers() => playersQuantity;
+    public GAME_DIFFICULT GetDifficult() => difficult;
 }

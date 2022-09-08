@@ -71,7 +71,7 @@ namespace Tutorial
                     break;
 
                 case STEPS.STEP4:
-                    if (GameConfiguration.Instance.GetPlayers() == 1)
+                    if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
                         if (!timer.Active) timer.ActiveTimer();
                     else 
                         if (!timer.Active && otherTutorial.steps == STEPS.STEP4) timer.ActiveTimer();

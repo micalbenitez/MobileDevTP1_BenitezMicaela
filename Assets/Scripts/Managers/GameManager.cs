@@ -43,6 +43,11 @@ namespace Managers
         [Header("Game UI")]
         public UIGame uiGame = null;
 
+        [Header("Obstacles")]
+        public GameObject boxes = null;
+        public GameObject cones = null;
+        public GameObject taxis = null;
+
         private Timer gameTimer = new Timer();
 
         private void Awake()
@@ -53,7 +58,8 @@ namespace Managers
         private void Update()
         {
             UpdateGameTimer();
-            ConfiguratedPlayersQuantity();
+            ConfiguratePlayersQuantity();
+            ConfigurateDifficult();
 
             /// Quit game
             if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
@@ -67,7 +73,7 @@ namespace Managers
 
         private void SetGameObjectsState(bool state)
         {
-            if (GameConfiguration.Instance.GetPlayers() == 1)
+            if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
             {
                 players[0].gameCamera.gameObject.SetActive(state);
                 players[0].carController.enabled = state;
@@ -84,9 +90,9 @@ namespace Managers
             }
         }
 
-        private void ConfiguratedPlayersQuantity()
+        private void ConfiguratePlayersQuantity()
         {
-            if (GameConfiguration.Instance.GetPlayers() == 1)
+            if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
             {
                 players[1].player.gameObject.SetActive(false);
                 players[1].gameCamera.gameObject.SetActive(false);
@@ -98,6 +104,28 @@ namespace Managers
                 players[0].gameCamera.rect = new Rect(0, 0, 1, 1);
                 players[0].tutorialCamera.rect = new Rect(0, 0, 1, 1);
                 players[0].downloadCamera.rect = new Rect(0, 0, 1, 1);
+            }
+        }
+
+        private void ConfigurateDifficult()
+        {
+            if (GameConfiguration.Instance.GetDifficult() == GameConfiguration.GAME_DIFFICULT.EASY)
+            {
+                boxes.SetActive(false);
+                cones.SetActive(false);
+                taxis.SetActive(false);
+            }
+            else if (GameConfiguration.Instance.GetDifficult() == GameConfiguration.GAME_DIFFICULT.MEDIUM)
+            {
+                boxes.SetActive(true);
+                cones.SetActive(true);
+                taxis.SetActive(false);
+            }
+            else
+            {
+                boxes.SetActive(true);
+                cones.SetActive(true);
+                taxis.SetActive(true);
             }
         }
 
