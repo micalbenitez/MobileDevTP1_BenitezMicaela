@@ -9,24 +9,7 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        [Serializable]
-        public class PlayerComponent
-        {
-            public string tag;
-            public Player player;
-            public CarController carController;
-            public PlayerData playerData;
-            public Camera gameCamera;
-            public GameObject playerUI;
-            public GameObject virtualJoystick;
-            public Tutorial.Tutorial tutorial;
-            public Camera tutorialCamera;
-            public Download.Download download;
-            public Camera downloadCamera;
-        }
-
-
-
+        /// ---------------------------------------- Design pattern state ----------------------------------------
         public abstract class GMState
         {
             public abstract void Enter(GameManager gameManager);
@@ -62,7 +45,6 @@ namespace Managers
             }
             public override void Exit(GameManager gameManager)
             {
-                gameManager.StartGame();
                 gameManager.players[0].tutorial.gameObject.SetActive(false);
                 gameManager.players[1].tutorial.gameObject.SetActive(false);
             }
@@ -71,53 +53,70 @@ namespace Managers
         {
             public override void Enter(GameManager gameManager)
             {
-                
+                gameManager.SetGameObjectsState(true);
+                gameManager.gameTimer.SetTimer(gameManager.gameDuration, Timer.TIMER_MODE.DECREASE, true);
             }
             public override void Update(GameManager gameManager)
             {
-                // Codigo que se ejecuta en el game
+                if (gameManager.gameTimer.Active) gameManager.gameTimer.UpdateTimer();                
             }
             public override GMState NextState(GameManager gameManager)
             {
-                return null;
+                if (gameManager.gameTimer.ReachedTimer()) return gameManager.gMEndGame;
+                else return null;
             }
             public override void Exit(GameManager gameManager)
             {
-                
+                LoaderManager.Instance.LoadScene(gameManager.finalScene);
             }
         }
         public class GMStateEndGame : GMState
         {
             public override void Enter(GameManager gameManager)
             {
-                
+                gameManager.EndGame();
             }
             public override void Update(GameManager gameManager)
-            {
-                // Codigo que se ejecuta en el end game
+            {                
             }
             public override GMState NextState(GameManager gameManager)
             {
-                return null;
+                if (Input.GetKeyDown(KeyCode.Return)) return gameManager.gMStateTutorial;
+                else return null;
             }
             public override void Exit(GameManager gameManager)
             {
-                
+                /// Replay
+                LoaderManager.Instance.LoadScene(gameManager.gameScene);
             }
         }
 
-        [SerializeField] private GMState currentState = null;
+        private GMState currentState = null;
         private GMStateTutorial gMStateTutorial = new GMStateTutorial();
         private GMStateGame gMGame = new GMStateGame();
         private GMStateEndGame gMEndGame = new GMStateEndGame();
+        /// ---------------------------------------- Design pattern state ----------------------------------------
 
 
-
-
-
+        [Serializable]
+        public class PlayerComponent
+        {
+            public string tag;
+            public Player player;
+            public CarController carController;
+            public PlayerData playerData;
+            public Camera gameCamera;
+            public GameObject playerUI;
+            public GameObject virtualJoystick;
+            public Tutorial.Tutorial tutorial;
+            public Camera tutorialCamera;
+            public Download.Download download;
+            public Camera downloadCamera;
+        }
 
         [Header("Game data")]
         public float gameDuration = 0;
+        public string gameScene = "";
         public string finalScene = "";
 
         [Header("Player data")]
@@ -149,6 +148,7 @@ namespace Managers
             }
 
 
+            /*
             var touches = Input.touches;
             string log = "";
             foreach (var t in touches)
@@ -156,13 +156,14 @@ namespace Managers
                 log += $"{t.fingerId} - {t.position} \n";
             }
             Debug.LogWarning(log);
+            */
 
-            UpdateGameTimer();
+            
             ConfiguratePlayersQuantity();
             ConfigurateDifficult();
 
             /// Quit game
-            if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
+            if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         }
 
         private void ChangeState(GMState nextState)
@@ -170,12 +171,6 @@ namespace Managers
             if (currentState != null) currentState.Exit(this );
             nextState.Enter(this);
             currentState = nextState;
-        }
-
-        public void StartGame()
-        {
-            SetGameObjectsState(true);
-            gameTimer.SetTimer(gameDuration, Timer.TIMER_MODE.DECREASE, true);
         }
 
         private void SetGameObjectsState(bool state)
@@ -236,17 +231,8 @@ namespace Managers
             }
         }
 
-        private void UpdateGameTimer()
-        {
-            if (gameTimer.Active) gameTimer.UpdateTimer();
-            if (gameTimer.ReachedTimer()) EndGame();
-        }
-
         private void EndGame()
-        {
-            LoaderManager.Instance.LoadScene(finalScene);
-            currentState = gMEndGame;
-
+        {         
             if (players[0].player.money > players[1].player.money)
             {
                 /// Winner
@@ -277,11 +263,6 @@ namespace Managers
 
             for (int i = 0; i < players.Length; i++)
                 players[i].download.EndGame();
-        }
-
-        private void QuitGame()
-        {
-            Application.Quit();
         }
 
         private void OnEnable()
