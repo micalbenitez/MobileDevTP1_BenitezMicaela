@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 6268642003108654268}
   - component: {fileID: 3138831964536323212}
   m_Layer: 0
-  m_Name: "Puerta Animaci\xF3n"
+  m_Name: TruckDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
