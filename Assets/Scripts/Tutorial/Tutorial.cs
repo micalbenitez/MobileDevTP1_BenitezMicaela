@@ -27,7 +27,6 @@ namespace Tutorial
         public TutorialBag tutorialBag = null;
         [Header("Finish tutorial")]
         public float timeToStartGame = 0;
-        public UnityEvent finishTutorial = null;
 
         [Header("Other tutorial")]
         public Tutorial otherTutorial = null;
@@ -48,7 +47,7 @@ namespace Tutorial
         /// <summary>
         /// Update tutorial
         /// </summary>
-        private void Update()
+        public void PlayTutorial()
         {
             switch (steps)
             {
@@ -82,7 +81,7 @@ namespace Tutorial
                     break;
             }
 
-            FinishTutorial();
+            if (timer.Active) timer.UpdateTimer();
         }
 
         /// <summary>
@@ -113,14 +112,10 @@ namespace Tutorial
         /// <summary>
         /// Start the game
         /// </summary>
-        private void FinishTutorial()
-        {
-            if (timer.Active) timer.UpdateTimer();
-            if (timer.ReachedTimer())
-            {
-                finishTutorial?.Invoke();
-                gameObject.SetActive(false);
-            }
+        public bool FinishTutorial()
+        {         
+            if (timer.ReachedTimer()) return true;
+            else return false;
         }
     }
 }

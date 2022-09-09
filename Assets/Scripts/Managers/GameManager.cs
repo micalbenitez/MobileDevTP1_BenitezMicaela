@@ -38,26 +38,40 @@ namespace Managers
         {
             public override void Enter(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                gameManager.SetGameObjectsState(false);
             }
             public override void Update(GameManager gameManager)
             {
-                // Codigo que se ejecuta en el tutorial
+                gameManager.players[0].tutorial.PlayTutorial();
+                gameManager.players[1].tutorial.PlayTutorial();
             }
             public override GMState NextState(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
+                {
+                    if (gameManager.players[0].tutorial.FinishTutorial())
+                        return gameManager.gMGame;
+                }
+                else
+                {
+                    if (gameManager.players[0].tutorial.FinishTutorial() && gameManager.players[1].tutorial.FinishTutorial())
+                        return gameManager.gMGame;
+                }
+
+                return null;
             }
             public override void Exit(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                gameManager.StartGame();
+                gameManager.players[0].tutorial.gameObject.SetActive(false);
+                gameManager.players[1].tutorial.gameObject.SetActive(false);
             }
         }
         public class GMStateGame : GMState
         {
             public override void Enter(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                
             }
             public override void Update(GameManager gameManager)
             {
@@ -65,18 +79,18 @@ namespace Managers
             }
             public override GMState NextState(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                return null;
             }
             public override void Exit(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                
             }
         }
         public class GMStateEndGame : GMState
         {
             public override void Enter(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                
             }
             public override void Update(GameManager gameManager)
             {
@@ -84,18 +98,18 @@ namespace Managers
             }
             public override GMState NextState(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                return null;
             }
             public override void Exit(GameManager gameManager)
             {
-                throw new NotImplementedException();
+                
             }
         }
 
-        GMState currentState = null;
-        GMStateTutorial gMStateTutorial = new GMStateTutorial();
-        GMStateGame gMGame = new GMStateGame();
-        GMStateEndGame gMEndGame = new GMStateEndGame();
+        [SerializeField] private GMState currentState = null;
+        private GMStateTutorial gMStateTutorial = new GMStateTutorial();
+        private GMStateGame gMGame = new GMStateGame();
+        private GMStateEndGame gMEndGame = new GMStateEndGame();
 
 
 
@@ -121,7 +135,8 @@ namespace Managers
 
         private void Awake()
         {
-            SetGameObjectsState(false);
+            currentState = gMStateTutorial;
+            if (currentState != null) currentState.Enter(this);
         }
 
         private void Update()
