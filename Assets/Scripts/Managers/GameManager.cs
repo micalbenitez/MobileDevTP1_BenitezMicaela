@@ -25,13 +25,82 @@ namespace Managers
             public Camera downloadCamera;
         }
 
-        public enum GAME_STATE 
-        { 
-            TUTORIAL, 
-            GAME, 
-            ENDGAME
+
+
+        public abstract class GMState
+        {
+            public abstract void Enter(GameManager gameManager);
+            public abstract void Update(GameManager gameManager);
+            public abstract GMState NextState(GameManager gameManager);
+            public abstract void Exit(GameManager gameManager);
         }
-        public GAME_STATE gameState = GAME_STATE.TUTORIAL;
+        public class GMStateTutorial : GMState
+        {
+            public override void Enter(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Update(GameManager gameManager)
+            {
+                // Codigo que se ejecuta en el tutorial
+            }
+            public override GMState NextState(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Exit(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public class GMStateGame : GMState
+        {
+            public override void Enter(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Update(GameManager gameManager)
+            {
+                // Codigo que se ejecuta en el game
+            }
+            public override GMState NextState(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Exit(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public class GMStateEndGame : GMState
+        {
+            public override void Enter(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Update(GameManager gameManager)
+            {
+                // Codigo que se ejecuta en el end game
+            }
+            public override GMState NextState(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+            public override void Exit(GameManager gameManager)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        GMState currentState = null;
+        GMStateTutorial gMStateTutorial = new GMStateTutorial();
+        GMStateGame gMGame = new GMStateGame();
+        GMStateEndGame gMEndGame = new GMStateEndGame();
+
+
+
+
+
 
         [Header("Game data")]
         public float gameDuration = 0;
@@ -57,12 +126,35 @@ namespace Managers
 
         private void Update()
         {
+            if (currentState != null)
+            {
+                currentState.Update(this);
+                GMState nextState = currentState.NextState(this);
+                if (nextState != null) ChangeState(nextState);
+            }
+
+
+            var touches = Input.touches;
+            string log = "";
+            foreach (var t in touches)
+            {
+                log += $"{t.fingerId} - {t.position} \n";
+            }
+            Debug.LogWarning(log);
+
             UpdateGameTimer();
             ConfiguratePlayersQuantity();
             ConfigurateDifficult();
 
             /// Quit game
             if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
+        }
+
+        private void ChangeState(GMState nextState)
+        {
+            if (currentState != null) currentState.Exit(this );
+            nextState.Enter(this);
+            currentState = nextState;
         }
 
         public void StartGame()
@@ -138,7 +230,7 @@ namespace Managers
         private void EndGame()
         {
             LoaderManager.Instance.LoadScene(finalScene);
-            gameState = GAME_STATE.ENDGAME;
+            currentState = gMEndGame;
 
             if (players[0].player.money > players[1].player.money)
             {

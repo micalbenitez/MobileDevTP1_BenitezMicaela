@@ -50,8 +50,6 @@ namespace Tutorial
         /// </summary>
         private void Update()
         {
-            StartGame();
-
             switch (steps)
             {
                 case STEPS.PRETUTORIAL:
@@ -83,6 +81,8 @@ namespace Tutorial
                 default:
                     break;
             }
+
+            FinishTutorial();
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Tutorial
         /// <summary>
         /// Start the game
         /// </summary>
-        private void StartGame()
+        private void FinishTutorial()
         {
             if (timer.Active) timer.UpdateTimer();
             if (timer.ReachedTimer())

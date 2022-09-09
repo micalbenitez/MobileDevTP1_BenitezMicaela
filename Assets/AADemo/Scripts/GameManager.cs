@@ -5,7 +5,7 @@ using Entities.Player;
 public class GameManager : MonoBehaviour
 {
 	//public static Player[] Jugadoers;
-	
+
 	public static GameManager Instancia;
 	
 	public float TiempoDeJuego = 60;
