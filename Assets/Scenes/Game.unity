@@ -5786,7 +5786,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
       propertyPath: m_Name
-      value: FinTaxi
+      value: TaxiEnd
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
       propertyPath: m_RootOrder
@@ -6348,7 +6348,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
       propertyPath: m_Name
-      value: FinTaxi
+      value: TaxiEnd
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
       propertyPath: m_RootOrder
@@ -6384,10 +6384,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: d805608cb151d9f40baf8fc5e4a8b2b7, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
