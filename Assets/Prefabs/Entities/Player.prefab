@@ -7280,7 +7280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea43c58fa021b9498095cd820087258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameCheck: 20
+  frameCheck: 2
   rangeMinRight: 4
   rangeMaxRight: 10
 --- !u!114 &3720558982164664488

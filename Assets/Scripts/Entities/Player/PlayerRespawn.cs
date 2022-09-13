@@ -8,7 +8,6 @@ namespace Entities.Player
     public class PlayerRespawn : MonoBehaviour
     {
         [Header("Respawn data")]
-        public int frameCheck = 0;
         public float rangeMinRight = 0;
         public float rangeMaxRight = 0;
 
@@ -26,15 +25,15 @@ namespace Entities.Player
 
         private void Update()
         {
-            if (Time.deltaTime % frameCheck == 0)
-                transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-
             if (timer.Active) timer.UpdateTimer();
             if (timer.ReachedTimer())
             {
                 Physics.IgnoreLayerCollision(8, 9, false);
                 GetComponent<CarController>().enabled = true;
             }
+
+            /// Correct rotation
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         }
 
         private void OnTriggerEnter(Collider other)
