@@ -6,15 +6,14 @@ namespace Entities.Player
 {
 	public class Player : MonoBehaviour
 	{
-		public enum STATES 
-		{ 
-			Download, 
-			Driving, 
-			Calibration, 
-			Tutorial
+		public enum STATES
+		{
+			Tutorial,
+			Driving,
+			Download
 		}
 
-		public STATES state = STATES.Driving;
+		public STATES state = STATES.Tutorial;
 
 		public int money = 0;
 		public int idPlayer = 0;

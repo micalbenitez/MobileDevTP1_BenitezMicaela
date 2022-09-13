@@ -20,6 +20,7 @@ namespace Tutorial
         [Header("Tutorial screen")]
         public TutorialScreen tutorialScreen = null;
         [Header("Player data")]
+        public Player player = null;
         public PlayerInput playerInput = null;
         [Header("Bag")]
         public TutorialBag tutorialBag = null;
@@ -40,6 +41,7 @@ namespace Tutorial
         private void Awake()
         {
             timer.SetTimer(timeToStartGame, Timer.TIMER_MODE.DECREASE);
+            player.ChangePlayerState(Player.STATES.Tutorial);
         }
 
         /// <summary>
@@ -111,9 +113,16 @@ namespace Tutorial
         /// Start the game
         /// </summary>
         public bool FinishTutorial()
-        {         
-            if (timer.ReachedTimer()) return true;
-            else return false;
+        {
+            if (timer.ReachedTimer())
+            {
+                player.ChangePlayerState(Player.STATES.Driving);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
