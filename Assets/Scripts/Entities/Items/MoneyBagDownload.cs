@@ -44,19 +44,13 @@ namespace Entities.Items
 					}
 					else
 					{
-						if (carrier.GetComponent<ManoRecept>() != null)
-							transform.position = carrier.transform.position - Vector3.up * 1.2f;
-						else
-							transform.position = Vector3.Lerp(transform.position, carrier.transform.position, T.GetDT() * 10);
+						transform.position = Vector3.Lerp(transform.position, carrier.transform.position, Time.deltaTime * 10);
 					}
 
 				}
 				else
 				{
-					if (carrier.GetComponent<ManoRecept>() != null)
-						transform.position = carrier.transform.position - Vector3.up * 1.2f;
-					else
-						transform.position = carrier.transform.position;
+					transform.position = carrier.transform.position;
 				}
 			}
 

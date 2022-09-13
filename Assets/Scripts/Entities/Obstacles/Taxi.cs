@@ -26,6 +26,10 @@ namespace Entities.Obstacle
 		public bool turning = false;
 		public float turningAngle = 30;
 
+		[Header("Players")]
+		public Player.Player player1 = null;
+		public Player.Player player2 = null;
+
 		private Vector3 initialRotation = Vector3.zero;
 		private Vector3 initialPosition = Vector3.zero;
 		private RaycastHit raycast;
@@ -151,8 +155,8 @@ namespace Entities.Obstacle
 
 		private bool Measurement()
 		{
-			float dist1 = (GameManager.Instancia.Player1.transform.position - initialPosition).magnitude;
-			float dist2 = (GameManager.Instancia.Player2.transform.position - initialPosition).magnitude;
+			float dist1 = (player1.transform.position - initialPosition).magnitude;
+			float dist2 = (player2.transform.position - initialPosition).magnitude;
 
 			if (dist1 > 4 && dist2 > 4) return true;
 			else return false;
