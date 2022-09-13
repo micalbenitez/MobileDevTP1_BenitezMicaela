@@ -43,7 +43,7 @@ public class InputManager {
 #endif
     }
 
-    public bool Up(string axis)
+    public bool GetUpButton(string axis)
     {
 #if UNITY_EDITOR
         float value = Input.GetAxis(axis);
@@ -56,7 +56,7 @@ public class InputManager {
 #endif
     }
 
-    public bool Down(string axis)
+    public bool GetDownButton(string axis)
     {
 #if UNITY_EDITOR
         float value = Input.GetAxis(axis);
@@ -69,7 +69,7 @@ public class InputManager {
 #endif
     }
 
-    public bool Left(string axis)
+    public bool GetLeftButton(string axis)
     {
 #if UNITY_EDITOR
         float value = Input.GetAxis(axis);
@@ -82,7 +82,7 @@ public class InputManager {
 #endif
     }
 
-    public bool Right(string axis)
+    public bool GetRightButton(string axis)
     {
 #if UNITY_EDITOR
         float value = Input.GetAxis(axis);
