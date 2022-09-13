@@ -7234,6 +7234,11 @@ PrefabInstance:
       propertyPath: miInput
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4732317768754109727, guid: 21018f6ce88d6274ea992983793c0680,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 30331355}
     - target: {fileID: 4732317769355250893, guid: 21018f6ce88d6274ea992983793c0680,
         type: 3}
       propertyPath: images.Array.size
@@ -9687,6 +9692,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4732317768754109727, guid: 21018f6ce88d6274ea992983793c0680,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 7828726415267586624}
     - target: {fileID: 4732317769259605075, guid: 21018f6ce88d6274ea992983793c0680,
         type: 3}
       propertyPath: m_Name

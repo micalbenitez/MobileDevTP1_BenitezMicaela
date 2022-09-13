@@ -26,10 +26,10 @@ public class EstantePartida : PalletManagement
         }
     }
 	
-	public override bool Receive (Pallet pallet)
+	public override bool Receive (MoneyBagDownload pallet)
 	{
 		//pallet.CintaReceptora = CintaReceptora.gameObject;
-		pallet.Portador = gameObject;
+		pallet.carrier = gameObject;
 		return base.Receive (pallet);
 	}
 }

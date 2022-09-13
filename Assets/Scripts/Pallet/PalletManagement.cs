@@ -6,14 +6,14 @@ public class PalletManagement : MonoBehaviour
 {
 	public Download.Download download = null;
 
-	protected System.Collections.Generic.List<Pallet> pallets = new System.Collections.Generic.List<Pallet>();
+	protected System.Collections.Generic.List<MoneyBagDownload> pallets = new System.Collections.Generic.List<MoneyBagDownload>();
 	protected int counter = 0;
 	
-	public virtual bool Receive(Pallet pallet)
+	public virtual bool Receive(MoneyBagDownload pallet)
 	{
 		Debug.Log(gameObject.name + " / Receive()");
 		pallets.Add(pallet);
-		pallet.Pasaje();
+		pallet.Passage();
 		return true;
 	}
 	

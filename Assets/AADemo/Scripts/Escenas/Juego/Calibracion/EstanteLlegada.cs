@@ -24,10 +24,10 @@ public class EstanteLlegada : PalletManagement
 	
 	//--------------------------------------------------//
 	
-	public override bool Receive(Pallet p)
+	public override bool Receive(MoneyBagDownload moneyBagDownload)
 	{
-        p.Portador = this.gameObject;
-        base.Receive(p);
+        moneyBagDownload.carrier = gameObject;
+        base.Receive(moneyBagDownload);
         ContrCalib.FinTutorial();
 
         return true;

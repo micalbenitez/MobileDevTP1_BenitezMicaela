@@ -23,11 +23,11 @@ public class ManoRecept : PalletManagement
 	
 	//---------------------------------------------------------//	
 	
-	public override bool Receive(Pallet pallet)
+	public override bool Receive(MoneyBagDownload pallet)
 	{
 		if(!Possession())
 		{
-			pallet.Portador = this.gameObject;
+			pallet.carrier = this.gameObject;
 			base.Receive(pallet);
 			return true;
 		}

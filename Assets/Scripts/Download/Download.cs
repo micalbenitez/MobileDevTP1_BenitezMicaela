@@ -17,7 +17,7 @@ namespace Download
 		public GameObject downloadCamera = null;
 
 		[Header("Download objects")]
-		public Pallet pallet = null;
+		public MoneyBagDownload pallet = null;
 		public Shelve shelve = null;
 		public Band band = null;
 		public BrinksSucursal brinksSucursal = null;
@@ -29,7 +29,7 @@ namespace Download
 		private Deposit deposit = null;
 		private float TempoBonus;
 		private float bonus = 0;
-		private Pallet PEnMov = null;
+		private MoneyBagDownload PEnMov = null;
 
 		private void Start()
 		{
@@ -52,7 +52,7 @@ namespace Download
 				if (TempoBonus > 0)
 				{
 					bonus = (TempoBonus * (float)PEnMov.value) / PEnMov.time;
-					TempoBonus -= T.GetDT();
+					TempoBonus -= Time.deltaTime;
 				}
 				else
 				{
@@ -77,12 +77,12 @@ namespace Download
 			{
 				if (player.moneyBags[i] != null)
 				{
-					Pallet palletGO = Instantiate(pallet.gameObject).GetComponent<Pallet>();
+					MoneyBagDownload palletGO = Instantiate(pallet.gameObject).GetComponent<MoneyBagDownload>();
 					if (palletGO)
 					{
-						if (player.moneyBags[i].value == Pallet.VALUES.Value1) palletGO.value = Pallet.VALUES.Value1;
-						else if (player.moneyBags[i].value == Pallet.VALUES.Value2) palletGO.value = Pallet.VALUES.Value2;
-						else if (player.moneyBags[i].value == Pallet.VALUES.Value3) palletGO.value = Pallet.VALUES.Value3;
+						if (player.moneyBags[i].value == MoneyBagDownload.VALUES.Value1) palletGO.value = MoneyBagDownload.VALUES.Value1;
+						else if (player.moneyBags[i].value == MoneyBagDownload.VALUES.Value2) palletGO.value = MoneyBagDownload.VALUES.Value2;
+						else if (player.moneyBags[i].value == MoneyBagDownload.VALUES.Value3) palletGO.value = MoneyBagDownload.VALUES.Value3;
 
 						shelve.Receive(palletGO);
 					}
@@ -97,7 +97,7 @@ namespace Download
 		/// <summary>
 		/// When the pallet leaves the truck
 		/// </summary>
-		public void TakeOutPallet(Pallet pallet)
+		public void TakeOutPallet(MoneyBagDownload pallet)
 		{
 			PEnMov = pallet;
 			uIGame.SetBonusState(player.idPlayer, true);
@@ -151,7 +151,7 @@ namespace Download
 			band.enabled = false;
 		}
 
-		public Pallet GetPalletEnMov()
+		public MoneyBagDownload GetPalletEnMov()
 		{
 			return PEnMov;
 		}

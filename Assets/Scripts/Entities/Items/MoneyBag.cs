@@ -7,7 +7,7 @@ namespace Entities.Items
 	public class MoneyBag : MonoBehaviour
 	{
 		[Header("Money bag data")]
-		public Pallet.VALUES value = Pallet.VALUES.Value2;
+		public MoneyBagDownload.VALUES value = MoneyBagDownload.VALUES.Value2;
 		public MeshRenderer meshRenderer = null;
 		public GameObject particles = null;
 

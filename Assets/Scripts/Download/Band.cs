@@ -10,6 +10,7 @@ namespace Download
 		public float speed = 0;
 		public Animator bandTubeAnimation = null;
 
+		private const float specificHeight = 3.61f;
 		/// Pallet that is received
 		private Transform pallet = null;
 
@@ -24,14 +25,14 @@ namespace Download
 			{
 				if (pallets[i].GetComponent<Renderer>().enabled)
 				{
-					if (!pallets[i].GetComponent<Pallet>().EnSmoot)
+					if (!pallets[i].GetComponent<MoneyBagDownload>().EnSmoot)
 					{
-						pallets[i].GetComponent<Pallet>().enabled = false;
-						pallets[i].TempoEnCinta += T.GetDT();
+						pallets[i].GetComponent<MoneyBagDownload>().enabled = false;
+						pallets[i].TempoEnCinta += Time.deltaTime;
 
-						pallets[i].transform.position += transform.right * speed * T.GetDT();
+						pallets[i].transform.position += transform.right * (speed * Time.deltaTime);
 						Vector3 vAux = pallets[i].transform.localPosition;
-						vAux.y = 3.61f; /// specific height
+						vAux.y = specificHeight;
 						pallets[i].transform.localPosition = vAux;
 
 						if (pallets[i].TempoEnCinta >= pallets[i].TiempEnCinta)
@@ -50,10 +51,10 @@ namespace Download
 			if (recept != null) Give(recept);
 		}
 
-		public override bool Receive(Pallet pallet)
+		public override bool Receive(MoneyBagDownload pallet)
 		{
 			download.ArrivePallet();
-			pallet.Portador = gameObject;
+			pallet.carrier = gameObject;
 			this.pallet = pallet.transform;
 			base.Receive(pallet);
 			TurnOff();

@@ -13,7 +13,7 @@ namespace Download
 		[Header("Pallets manager")]
 		public PalletManager palletManager = null;
 		[Header("Pallets value")]
-		public Pallet.VALUES Valor = Pallet.VALUES.Value1;
+		public MoneyBagDownload.VALUES Valor = MoneyBagDownload.VALUES.Value1;
 
 		private void OnTriggerEnter(Collider other)
 		{
@@ -41,10 +41,10 @@ namespace Download
 			}
 		}
 
-		public override bool Receive(Pallet pallet)
+		public override bool Receive(MoneyBagDownload pallet)
 		{
-			pallet.CintaReceptora = band.gameObject;
-			pallet.Portador = this.gameObject;
+			pallet.bandReceiving = band.gameObject;
+			pallet.carrier = this.gameObject;
 			palletManager.Add();
 			pallet.GetComponent<Renderer>().enabled = false;
 			return base.Receive(pallet);

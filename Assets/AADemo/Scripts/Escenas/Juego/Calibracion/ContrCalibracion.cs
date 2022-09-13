@@ -14,7 +14,7 @@ public class ContrCalibracion : MonoBehaviour
 	
 	public PalletManagement Partida;
 	public PalletManagement Llegada;
-	public Pallet P;
+	public MoneyBagDownload P;
     public PalletManagement palletsMover;
 	
 	GameManager GM;
@@ -28,7 +28,7 @@ public class ContrCalibracion : MonoBehaviour
 		
 		GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
 		
-		P.CintaReceptora = Llegada.gameObject;
+		P.bandReceiving = Llegada.gameObject;
 		Partida.Receive(P);
 		
 		SetActivComp(false);

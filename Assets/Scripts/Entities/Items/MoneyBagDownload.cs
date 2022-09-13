@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Entities.Items
 {
-	public class Pallet : MonoBehaviour
+	public class MoneyBagDownload : MonoBehaviour
 	{
 		public enum VALUES
 		{
@@ -14,8 +14,8 @@ namespace Entities.Items
 
 		public VALUES value = VALUES.Value1;
 		public float time = 0;
-		public GameObject CintaReceptora = null;
-		public GameObject Portador = null;
+		public GameObject bandReceiving = null;
+		public GameObject carrier = null;
 		public float TiempEnCinta = 1.5f;
 		public float TempoEnCinta = 0;
 
@@ -26,16 +26,16 @@ namespace Entities.Items
 
 		private void Start()
 		{
-			Pasaje();
+			Passage();
 		}
 
 		private void LateUpdate()
 		{
-			if (Portador != null)
+			if (carrier != null)
 			{
 				if (EnSmoot)
 				{
-					TempoSmoot += T.GetDT();
+					TempoSmoot += Time.deltaTime;
 
 					if (TempoSmoot >= TiempSmoot)
 					{
@@ -44,19 +44,19 @@ namespace Entities.Items
 					}
 					else
 					{
-						if (Portador.GetComponent<ManoRecept>() != null)
-							transform.position = Portador.transform.position - Vector3.up * 1.2f;
+						if (carrier.GetComponent<ManoRecept>() != null)
+							transform.position = carrier.transform.position - Vector3.up * 1.2f;
 						else
-							transform.position = Vector3.Lerp(transform.position, Portador.transform.position, T.GetDT() * 10);
+							transform.position = Vector3.Lerp(transform.position, carrier.transform.position, T.GetDT() * 10);
 					}
 
 				}
 				else
 				{
-					if (Portador.GetComponent<ManoRecept>() != null)
-						transform.position = Portador.transform.position - Vector3.up * 1.2f;
+					if (carrier.GetComponent<ManoRecept>() != null)
+						transform.position = carrier.transform.position - Vector3.up * 1.2f;
 					else
-						transform.position = Portador.transform.position;
+						transform.position = carrier.transform.position;
 				}
 			}
 
@@ -66,12 +66,12 @@ namespace Entities.Items
 		{
 			if (time > 0)
 			{
-				//calculo del bonus
+				/// Calculation of the bonus
 			}
 			return -1;
 		}
 
-		public void Pasaje()
+		public void Passage()
 		{
 			EnSmoot = true;
 			TempoSmoot = 0;
