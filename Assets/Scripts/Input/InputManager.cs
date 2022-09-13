@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager {
 
-    static InputManager instance = null;
+    static private InputManager instance = null;
     public static InputManager Instance {
         get {
             if (instance == null) {

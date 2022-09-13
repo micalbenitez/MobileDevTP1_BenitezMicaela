@@ -6,14 +6,16 @@ using UnityEngine.EventSystems;
 
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler {
 
-    [SerializeField] RectTransform stick = null;
-    [SerializeField] Image Background = null;
+    [SerializeField] private RectTransform stick = null;
+    [SerializeField] private Image Background = null;
+    [SerializeField] private Color pointerUp = Color.white;
+    [SerializeField] private Color pointerDown = Color.white;
 
     public string player = "";
     public float limit = 250f;
 
     public void OnPointerDown(PointerEventData eventData) {
-        Background.color = Color.red;
+        Background.color = pointerDown;
         stick.anchoredPosition = ConverToLocal(eventData);
     }
 
@@ -31,7 +33,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     }
 
     public void OnPointerUp(PointerEventData eventData) {
-        Background.color = Color.gray;
+        Background.color = pointerUp;
         stick.anchoredPosition = Vector2.zero;
         SetHorizontal(0);
         SetVertical(0);

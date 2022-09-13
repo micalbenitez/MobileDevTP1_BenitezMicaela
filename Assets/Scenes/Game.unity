@@ -4115,6 +4115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stick: {fileID: 1317427901}
   Background: {fileID: 1408648318}
+  pointerUp: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+  pointerDown: {r: 0.06666667, g: 0.11764707, b: 1, a: 1}
   player: 1
   limit: 100
 --- !u!114 &993594543
@@ -4282,6 +4284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stick: {fileID: 413280850}
   Background: {fileID: 1255769512}
+  pointerUp: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+  pointerDown: {r: 0.06666667, g: 0.11764707, b: 1, a: 1}
   player: 0
   limit: 100
 --- !u!114 &1037616622
