@@ -28,7 +28,10 @@ namespace Entities.Player
 
 		public Action<int, int> OnUpdateScore = null;
 
-		public bool AddMoneyBag(MoneyBag moneyBag)
+		/// Properties
+        public int CurrentTotalMoneyBags { get => currentTotalMoneyBags; }
+
+        public bool AddMoneyBag(MoneyBag moneyBag)
 		{
 			if (currentTotalMoneyBags + 1 <= moneyBags.Length)
 			{
