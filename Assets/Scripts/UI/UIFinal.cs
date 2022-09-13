@@ -40,16 +40,16 @@ namespace UI
 			{
 				case Stats.side.RIGHT:
 					winnerImage.sprite = player1Winner;
-					player1ScoreText.text = Stats.winnerScore.ToString();
-					player2ScoreText.text = Stats.loserScore.ToString();
-					player1Animator.Play("Winner");
+					player2ScoreText.text = Stats.winnerScore.ToString();
+					player1ScoreText.text = Stats.loserScore.ToString();
+					player2Animator.Play("Winner");
 					break;
 
 				case Stats.side.LEFT:
 					winnerImage.sprite = player2Winner;
-					player2ScoreText.text = Stats.winnerScore.ToString();
-					player1ScoreText.text = Stats.loserScore.ToString();
-					player2Animator.Play("Winner");
+					player1ScoreText.text = Stats.winnerScore.ToString();
+					player2ScoreText.text = Stats.loserScore.ToString();
+					player1Animator.Play("Winner");
 					break;
 			}
 		}
