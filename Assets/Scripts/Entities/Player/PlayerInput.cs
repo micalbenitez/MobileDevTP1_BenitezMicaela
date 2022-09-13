@@ -17,7 +17,8 @@ namespace Entities.Player
         public INPUT input = INPUT.WASD;
 
         private int playerID = -1;
-        private string inputName = "Horizontal";
+        private string horizontalInputName = "Horizontal";
+        private string verticalInputName = "Vertical";
 
         /// <summary>
         /// Set player keys
@@ -25,32 +26,18 @@ namespace Entities.Player
         private void Start()
         {
             playerID = GetComponent<Player>().idPlayer;
-            inputName += playerID;
+            horizontalInputName += playerID;
+            verticalInputName += playerID;
         }
 
         public string GetHorizontalInput()
         {
-            return inputName;
+            return horizontalInputName;
         }
 
-        public bool Up()
+        public string GetVerticalInput()
         {
-            return InputManager.Instance.GetAxis("Vertical" + playerID) > 0.5f;
-        }
-
-        public bool Down()
-        {
-            return InputManager.Instance.GetAxis("Vertical" + playerID) < -0.5f;
-        }
-
-        public bool Left()
-        {
-            return InputManager.Instance.GetAxis("Horizontal" + playerID) < -0.5f;
-        }
-
-        public bool Right()
-        {
-            return InputManager.Instance.GetAxis("Horizontal" + playerID) > 0.5f;
+            return verticalInputName;
         }
     }
 }

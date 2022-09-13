@@ -52,19 +52,19 @@ namespace Tutorial
             switch (steps)
             {
                 case STEPS.PRETUTORIAL:
-                    ActiveTutorial(playerInput.Up());
+                    ActiveTutorial(InputManager.Instance.Up(playerInput.GetVerticalInput()));
                     break;
 
                 case STEPS.STEP1:
-                    NextTutorialStep(playerInput.Left());
+                    NextTutorialStep(InputManager.Instance.Left(playerInput.GetHorizontalInput()));
                     break;
 
                 case STEPS.STEP2:
-                    NextTutorialStep(playerInput.Up());
+                    NextTutorialStep(InputManager.Instance.Up(playerInput.GetVerticalInput()));
                     break;
 
                 case STEPS.STEP3:
-                    NextTutorialStep(playerInput.Right());
+                    NextTutorialStep(InputManager.Instance.Right(playerInput.GetHorizontalInput()));
                     break;
 
                 case STEPS.STEP4:

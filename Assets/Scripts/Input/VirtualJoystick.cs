@@ -37,20 +37,20 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         SetVertical(0);
     }
 
-    void OnDisable() {
+    private void OnDisable() {
         SetHorizontal(0);
         SetVertical(0);
     }
 
-    void SetHorizontal(float val) {
+    private void SetHorizontal(float val) {
         InputManager.Instance.SetAxis("Horizontal" + player, val);
     }
 
-    void SetVertical(float val) {
+    private void SetVertical(float val) {
         InputManager.Instance.SetAxis("Vertical" + player, val);
     }
 
-    Vector2 ConverToLocal(PointerEventData eventData) {
+    private Vector2 ConverToLocal(PointerEventData eventData) {
         Vector2 newPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             transform as RectTransform,

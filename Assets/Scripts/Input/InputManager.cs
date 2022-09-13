@@ -22,10 +22,15 @@ public class InputManager {
         axisValues[axis] = value;
     }
 
-    float GetOrAddAxis(string axis) {
+    private float GetOrAddAxis(string axis) {
         if (!axisValues.ContainsKey(axis))
             axisValues.Add(axis, 0f);
         return axisValues[axis];
+    }
+
+    public bool GetButton(string button)
+    {
+        return Input.GetButton(button);
     }
 
     public float GetAxis(string axis) {
@@ -38,7 +43,55 @@ public class InputManager {
 #endif
     }
 
-    public bool GetButton(string button) {
-        return Input.GetButton(button);
+    public bool Up(string axis)
+    {
+#if UNITY_EDITOR
+        float value = Input.GetAxis(axis);
+        return value > 0 || GetAxis(axis) > 0.5f;
+#elif UNITY_ANDROID || UNITY_IOS
+        return GetAxis(axis) > 0.5f;
+#elif UNITY_STANDALONE
+        float value = Input.GetAxis(axis);
+        return value > 0;
+#endif
+    }
+
+    public bool Down(string axis)
+    {
+#if UNITY_EDITOR
+        float value = Input.GetAxis(axis);
+        return value < 0 || GetAxis(axis) < -0.5f;
+#elif UNITY_ANDROID || UNITY_IOS
+        return GetAxis(axis) < -0.5f;
+#elif UNITY_STANDALONE
+        float value = Input.GetAxis(axis);
+        return value < 0;
+#endif
+    }
+
+    public bool Left(string axis)
+    {
+#if UNITY_EDITOR
+        float value = Input.GetAxis(axis);
+        return value < 0 || GetAxis(axis) < -0.5f;
+#elif UNITY_ANDROID || UNITY_IOS
+        return GetAxis(axis) < -0.5f;
+#elif UNITY_STANDALONE
+        float value = Input.GetAxis(axis);
+        return value < 0;
+#endif
+    }
+
+    public bool Right(string axis)
+    {
+#if UNITY_EDITOR
+        float value = Input.GetAxis(axis);
+        return value > 0 || GetAxis(axis) > 0.5f;
+#elif UNITY_ANDROID || UNITY_IOS
+        return GetAxis(axis) > 0.5f;
+#elif UNITY_STANDALONE
+        float value = Input.GetAxis(axis);
+        return value > 0;
+#endif
     }
 }
