@@ -490,6 +490,7 @@ MonoBehaviour:
     playerUI: {fileID: 558542775}
     virtualJoystick: {fileID: 1037616619}
     tutorial: {fileID: 73104463}
+    tutorialScreen: {fileID: 1291434706718828694}
     tutorialCamera: {fileID: 92749118}
     download: {fileID: 1763595128}
     downloadCamera: {fileID: 1973466932}
@@ -501,6 +502,7 @@ MonoBehaviour:
     playerUI: {fileID: 1867734440}
     virtualJoystick: {fileID: 993594540}
     tutorial: {fileID: 610845714}
+    tutorialScreen: {fileID: 2076755896}
     tutorialCamera: {fileID: 980710877}
     download: {fileID: 1492889363}
     downloadCamera: {fileID: 1189189208}
@@ -9938,6 +9940,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1f7ce48f306b43b6f5617499b6768, type: 3}
+--- !u!114 &2076755896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1291434706729494244, guid: 06e1f7ce48f306b43b6f5617499b6768,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076755895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3272044e8fec74bb23750565b5fa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2085846066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400030, guid: c3937ebfeadcea949aaccad482540ba5,
@@ -10220,6 +10234,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1f7ce48f306b43b6f5617499b6768, type: 3}
+--- !u!114 &1291434706718828694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1291434706729494244, guid: 06e1f7ce48f306b43b6f5617499b6768,
+    type: 3}
+  m_PrefabInstance: {fileID: 1291434706718828693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3272044e8fec74bb23750565b5fa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3946387873529251070
 PrefabInstance:
   m_ObjectHideFlags: 0

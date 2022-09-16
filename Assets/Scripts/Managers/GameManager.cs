@@ -21,6 +21,12 @@ namespace Managers
         {
             public override void Enter(GameManager gameManager)
             {
+                if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
+                {
+                    gameManager.players[0].tutorialScreen.preTutorialImages = gameManager.players[1].tutorialScreen.preTutorialImages;
+                    gameManager.players[0].tutorialScreen.tutorialImages = gameManager.players[1].tutorialScreen.tutorialImages;
+                }
+
                 gameManager.SetGameObjectsState(false);
             }
             public override void Update(GameManager gameManager)
@@ -109,6 +115,7 @@ namespace Managers
             public GameObject playerUI;
             public GameObject virtualJoystick;
             public Tutorial.Tutorial tutorial;
+            public Tutorial.TutorialScreen tutorialScreen;
             public Camera tutorialCamera;
             public Download.Download download;
             public Camera downloadCamera;
