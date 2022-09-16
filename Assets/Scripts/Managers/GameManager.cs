@@ -21,11 +21,13 @@ namespace Managers
         {
             public override void Enter(GameManager gameManager)
             {
-                if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
-                {
-                    gameManager.players[0].tutorialScreen.preTutorialImages = gameManager.players[1].tutorialScreen.preTutorialImages;
-                    gameManager.players[0].tutorialScreen.tutorialImages = gameManager.players[1].tutorialScreen.tutorialImages;
-                }
+#if UNITY_STANDALONE
+                for (int i = 0; i < gameManager.pcUI.Length; i++) gameManager.pcUI[i].SetActive(true);
+#elif UNITY_ANDROID || UNITY_IOS
+                for (int i = 0; i < gameManager.mobileUI.Length; i++) gameManager.mobileUI[i].SetActive(true);
+                gameManager.players[0].tutorialScreen.preTutorialImages = gameManager.players[1].tutorialScreen.preTutorialImages;
+                gameManager.players[0].tutorialScreen.tutorialImages = gameManager.players[1].tutorialScreen.tutorialImages;
+#endif
 
                 gameManager.SetGameObjectsState(false);
             }
@@ -131,6 +133,12 @@ namespace Managers
 
         [Header("Game UI")]
         public UIGame uiGame = null;
+
+        [Header("Mobile UI")]
+        public GameObject[] mobileUI = null;
+
+        [Header("PC UI")]
+        public GameObject[] pcUI = null;
 
         [Header("Obstacles")]
         public GameObject boxes = null;
