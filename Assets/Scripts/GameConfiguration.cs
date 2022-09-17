@@ -43,10 +43,13 @@ public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
 
     private void ChangeButtonColor(Button[] buttons, int index)
     {
-        for (int i = 0; i < buttons.Length; i++)
+        if (buttons != null)
         {
-            if (i == index) buttons[i].image.color = pressButton;
-            else buttons[i].image.color = unpressButton;
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (i == index) buttons[i].image.color = pressButton;
+                else buttons[i].image.color = unpressButton;
+            }
         }
     }
 

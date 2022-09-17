@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Entities.Player;
+using Managers;
 
 namespace UI
 {
     public class UIGame : MonoBehaviour
     {
         [Header("Game UI")]
-        public GameObject timer = null;
-        public Text timerText = null;
-        public Text[] scoreTexts = null;
+        [SerializeField] private GameObject timer = null;
+        [SerializeField] private Text timerText = null;
+        [SerializeField] private Text[] scoreTexts = null;
 
         [Header("Download UI")]
-        public GameObject[] ui = null;
-        public Image[] bonusFill = null;
-        public Text[] bonusText = null;
+        [SerializeField] private GameObject[] ui = null;
+        [SerializeField] private Image[] bonusFill = null;
+        [SerializeField] private Text[] bonusText = null;
+
+        [Header("Setting panel")]
+        [SerializeField] private GameObject settingPanel = null;
+
+        [Header("Scenes")]
+        [SerializeField] private string menuSceneName = "";
 
         private void Awake()
         {
@@ -48,6 +54,18 @@ namespace UI
         {
             bonusFill[playerID].fillAmount = amount;
             bonusText[playerID].text = text;
+        }
+
+        public void SettingPanel(bool state)
+        {
+            settingPanel.SetActive(state);
+            if (state) Time.timeScale = 0;
+            else Time.timeScale = 1;
+        }
+
+        public void MainMenu()
+        {
+            LoaderManager.Instance.LoadScene(menuSceneName);
         }
     }
 }
