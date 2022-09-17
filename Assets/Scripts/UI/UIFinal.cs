@@ -8,16 +8,21 @@ namespace UI
 {
     public class UIFinal : MonoBehaviour
     {
-		[Header("Final UI data")] 
+		[Header("Multiplayer UI data")] 
 		[SerializeField] private Image winnerImage = null;
 		[SerializeField] private Sprite player1Winner = null;
 		[SerializeField] private Sprite player2Winner = null;
+		[SerializeField] private GameObject player1 = null;
+		[SerializeField] private GameObject player2 = null;
 		[SerializeField] private Text player1ScoreText = null;
 		[SerializeField] private Text player2ScoreText = null;
-
-		[Header("Score animations")]
 		[SerializeField] private Animator player1Animator = null;
 		[SerializeField] private Animator player2Animator = null;
+
+		[Header("Single UI data")]
+		[SerializeField] private GameObject player = null;
+		[SerializeField] private Text playerScoreText = null;
+		[SerializeField] private Animator playerAnimator = null;
 
 		[Header("Setting panel")]
 		[SerializeField] private GameObject settingPanel = null;
@@ -33,21 +38,34 @@ namespace UI
 
         private void SetWinner()
 		{
-			switch (Stats.playerWinner)
+			if (GameConfiguration.Instance.GetPlayers() == GameConfiguration.GAME_MODE.SINGLEPLAYER)
 			{
-				case Stats.side.RIGHT:
-					winnerImage.sprite = player1Winner;
-					player2ScoreText.text = Stats.winnerScore.ToString();
-					player1ScoreText.text = Stats.loserScore.ToString();
-					player2Animator.Play("Winner");
-					break;
+				player1.SetActive(false);
+				player2.SetActive(false);
+				winnerImage.gameObject.SetActive(false);
+				playerScoreText.text = Stats.winnerScore.ToString();
+				playerAnimator.Play("Winner");
+			}
+			else
+			{
+				player.SetActive(false);
 
-				case Stats.side.LEFT:
-					winnerImage.sprite = player2Winner;
-					player1ScoreText.text = Stats.winnerScore.ToString();
-					player2ScoreText.text = Stats.loserScore.ToString();
-					player1Animator.Play("Winner");
-					break;
+				switch (Stats.playerWinner)
+				{
+					case Stats.side.RIGHT:
+						winnerImage.sprite = player2Winner;
+						player2ScoreText.text = Stats.winnerScore.ToString();
+						player1ScoreText.text = Stats.loserScore.ToString();
+						player2Animator.Play("Winner");
+						break;
+
+					case Stats.side.LEFT:
+						winnerImage.sprite = player1Winner;
+						player1ScoreText.text = Stats.winnerScore.ToString();
+						player2ScoreText.text = Stats.loserScore.ToString();
+						player1Animator.Play("Winner");
+						break;
+				}
 			}
 		}
 
