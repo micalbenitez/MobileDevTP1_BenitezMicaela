@@ -19,29 +19,21 @@ public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
         DIFFICULT
     }
 
-    [Header("Players")]
-    [SerializeField] private Button[] playersButtons = null;
-
-    [Header("Difficult")]
-    [SerializeField] private Button[] difficultButtons = null;
-
     [Header("Buttons data")]
     [SerializeField] private Color unpressButton = Color.white;
     [SerializeField] private Color pressButton = Color.white;
 
     [Header("Configuration")]
-    [SerializeField] GAME_MODE playersQuantity;
-    [SerializeField] GAME_DIFFICULT difficult;
+    public GAME_MODE playersQuantity;
+    public GAME_DIFFICULT difficult;
 
     private void Start()
     {
         playersQuantity = GAME_MODE.SINGLEPLAYER;
         difficult = GAME_DIFFICULT.EASY;
-        ChangeButtonColor(playersButtons, (int)playersQuantity);
-        ChangeButtonColor(difficultButtons, (int)difficult);
     }
 
-    private void ChangeButtonColor(Button[] buttons, int index)
+    public void ChangeButtonColor(Button[] buttons, int index)
     {
         if (buttons != null)
         {
@@ -56,13 +48,11 @@ public class GameConfiguration : MonoBehaviourSingleton<GameConfiguration>
     public void SetPlayers(int gameMode)
     {
         playersQuantity = (GAME_MODE)gameMode;
-        ChangeButtonColor(playersButtons, (int)playersQuantity);
     }
 
     public void SetDifficult(int gameDifficult)
     {
         difficult = (GAME_DIFFICULT)gameDifficult;
-        ChangeButtonColor(difficultButtons, (int)difficult);
     }
 
     public GAME_MODE GetPlayers() => playersQuantity;

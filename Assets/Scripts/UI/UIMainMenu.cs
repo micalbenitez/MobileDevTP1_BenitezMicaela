@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Managers;
 
 public class UIMainMenu : MonoBehaviour
@@ -12,6 +13,18 @@ public class UIMainMenu : MonoBehaviour
     [Header("Groups")]
     [SerializeField] private GameObject menuGroup = null;
     [SerializeField] private GameObject ConfigurationGroup = null;
+
+    [Header("Players")]
+    [SerializeField] private Button[] playersButtons = null;
+
+    [Header("Difficult")]
+    [SerializeField] private Button[] difficultButtons = null;
+
+    private void Start()
+    {
+        GameConfiguration.Instance.ChangeButtonColor(playersButtons, (int)GameConfiguration.Instance.playersQuantity);
+        GameConfiguration.Instance.ChangeButtonColor(difficultButtons, (int)GameConfiguration.Instance.difficult);
+    }
 
     public void ActiveMenuGroup()
     {
@@ -38,5 +51,17 @@ public class UIMainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetPlayers(int gameMode)
+    {
+        GameConfiguration.Instance.SetPlayers(gameMode);
+        GameConfiguration.Instance.ChangeButtonColor(playersButtons, (int)GameConfiguration.Instance.playersQuantity);
+    }
+
+    public void SetDifficult(int gameDifficult)
+    {
+        GameConfiguration.Instance.SetDifficult(gameDifficult);
+        GameConfiguration.Instance.ChangeButtonColor(difficultButtons, (int)GameConfiguration.Instance.difficult);
     }
 }
