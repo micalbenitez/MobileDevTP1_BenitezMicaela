@@ -9,12 +9,25 @@ namespace UI
     public class UIGame : MonoBehaviour
     {
         [Header("Game UI")]
+        public GameObject timer = null;
+        public Text timerText = null;
         public Text[] scoreTexts = null;
 
         [Header("Download UI")]
         public GameObject[] ui = null;
         public Image[] bonusFill = null;
         public Text[] bonusText = null;
+
+        private void Awake()
+        {
+            timer.SetActive(false);
+        }
+
+        public void UpdateTimer(int timer)
+        {
+            this.timer.SetActive(true);
+            timerText.text = timer.ToString();
+        }
 
         public void UpdateScore(int playerID, int score)
         {

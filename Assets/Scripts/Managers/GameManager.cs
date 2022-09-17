@@ -23,8 +23,10 @@ namespace Managers
             {
 #if UNITY_STANDALONE
                 for (int i = 0; i < gameManager.pcUI.Length; i++) gameManager.pcUI[i].SetActive(true);
+                for (int i = 0; i < gameManager.mobileUI.Length; i++) gameManager.mobileUI[i].SetActive(false);
 #elif UNITY_ANDROID || UNITY_IOS
                 for (int i = 0; i < gameManager.mobileUI.Length; i++) gameManager.mobileUI[i].SetActive(true);
+                for (int i = 0; i < gameManager.pcUI.Length; i++) gameManager.pcUI[i].SetActive(false);
                 gameManager.players[0].tutorialScreen.preTutorialImages = gameManager.players[1].tutorialScreen.preTutorialImages;
                 gameManager.players[0].tutorialScreen.tutorialImages = gameManager.players[1].tutorialScreen.tutorialImages;
 #endif
@@ -66,7 +68,11 @@ namespace Managers
             }
             public override void Update(GameManager gameManager)
             {
-                if (gameManager.gameTimer.Active) gameManager.gameTimer.UpdateTimer();                
+                if (gameManager.gameTimer.Active)
+                {
+                    gameManager.gameTimer.UpdateTimer();
+                    gameManager.uiGame.UpdateTimer((int)gameManager.gameTimer.CurrentTime);
+                }
             }
             public override GMState NextState(GameManager gameManager)
             {
