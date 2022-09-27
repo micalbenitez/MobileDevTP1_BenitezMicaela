@@ -1,0 +1,11 @@
+1) Singleton:
+Scripts > Toolbox > MonoBehaviourSingleton.
+Se utiliza para GameManager y LoaderManager.
+
+2) Pool object:
+Scripts > Toolbox > Tool.
+Se utiliza en MoneyBagParticles para el spawn del efecto de particulas, cuando un camion
+agarra una bolsa de monedas.
+
+3) State:
+Se utiliza en GameManager para manejar los distintos estados de: Tutorial, Game y End.
