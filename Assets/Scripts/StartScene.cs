@@ -11,11 +11,12 @@ public class StartScene : MonoBehaviour
     public Image loadingBar = null;
 
     const string mainMenuScene = "MainMenu";
+    const float waitTimer = 1f;
     private Timer timer = new Timer();
 
     private IEnumerator Start()
     {
-        timer.SetTimer(1, Timer.TIMER_MODE.INCREASE, true);
+        timer.SetTimer(waitTimer, Timer.TIMER_MODE.INCREASE, true);
         loadingBar.fillAmount = 0;
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mainMenuScene);
@@ -25,7 +26,7 @@ public class StartScene : MonoBehaviour
             Debug.Log("Loading: " + asyncLoad.progress);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTimer);
         asyncLoad.allowSceneActivation = true;
     }
 
